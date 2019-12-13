@@ -87,27 +87,39 @@ function callDrink () {
         // for loop over the array to populate data
         for (let i = 0; i < response.length; i ++) {
             
-            //Creates a new div
+            //Creates a new row div
             let newDiv= $("<div>");
-            // Creates new h4 t display the recipe's title
-            let drinkTitle = $("<h5>"  + response[i].strDrink + "</h5>");
-            //add classes to the element
-            drinkTitle.addClass("card-title text-center marginTop");
-            //add class to the ingredient element
-            // ingredientsUsed.addClass("card-text");
-            // Creates an img tag to display the forcast icon
-            let drinkImg = $("<img>");
-            // Creates a src url for the img element
-            drinkImg.attr("src", response[i].strDrinkThumb);
-            //Adds a class (with img width and height) to the img element
-            // recipeImg.addClass("card-img");
-            //adds classes to the div element to style
-            // newDiv.addClass("");
-            //Appends all the different elements to the div
-            newDiv.append(drinkTitle);
-            newDiv.append(strDrinkThumb);
+            newDiv.addClass("row");
+                //Creates column div
+                let secondDiv= $("<div>");
+                secondDiv.addClass("col s12 m7");
+                    // creates the card div
+                    let thirdDiv= $("<div>");
+                    thirdDiv.addClass("card");
+                        // creates an image div
+                        let fourthDiv= $("<div>");
+                        fourthDiv.addClass("card-image");
+                        let drinkImg = $("<img>");
+                        // Creates a src url for the img element
+                        drinkImg.attr("src", response[i].strDrinkThumb);
+                    // creates a text div (where our title goes)
+                    let fifthDiv= $("<div>");
+                    fifthDiv.addClass("card-content");
+                        // Creates drink text
+                        let drinkTitle = $("<h5>"  + response[i].strDrink + "</h5>");
+                    let sixthDiv= $("<div>");
+                    sixthDiv.addClass("card-action");
+                    // let firstAnchor = $("<a>" + response[i].);
+
             // Appends the div to the appropriate id on the page
             $("#results").append(newDiv);
+            vewDiv.appendChild(secondDiv);
+            secondDiv.appendChild(thirdDiv);
+            thirdDiv.appendChild(fourthDiv);
+            fourthDiv.appendChild(drinkImg);
+            thirdDiv.appendChild(fifthDiv);
+            fifthDiv.append(drinkTitle);
+            thirdDiv.appendChild(sixthDiv);
         }
     })
 };
