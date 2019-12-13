@@ -1,1 +1,15 @@
- CSS STYLING 
+body {
+    /* The image used */
+    background-image: url(assets\images\background-image.jpg);
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+  .searchInput{
+      width: 100%;
+      
+  }
