@@ -1,9 +1,11 @@
 body {
+
+    background-image: url("../images/background-image.jpg");
     /* The image used */
     /* background-image: url(assets\images\background-image.jpg); */
     /* Full height */
+
     height: 100%;
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,4 +14,24 @@ body {
   .searchInput{
       width: 100%;
       
+  }
+
+  .jumbotron{
+      margin: auto;
+      height: 300px;
+      width: 550px;
+      background-color: white;
+      opacity: 0.5;
+      color: black;
+      font-family: fantasy;
+      text-align: center;
+      font-size: 125px;
+      padding-top: 25px;
+      
+  }
+  #jumbotronHeader{
+      text-shadow: 5px 5px grey;
+      margin: 10px auto;
+      
+
   }
