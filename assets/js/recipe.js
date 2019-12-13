@@ -80,19 +80,20 @@ function callDrink () {
         url: queryURL,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        var drinks = response.drinks
+        console.log(drinks);
 
         //empties out dynamically created elements from previous search
         $("#results").empty();
         // for loop over the array to populate data
-        for (let i = 0; i < response.length; i ++) {
+        for (let i = 0; i < drinks.length; i ++) {
+            console.log(i);
             
             //Creates a new row div
-            let newDiv= $("<div>");
-            newDiv.addClass("row");
+           
                 //Creates column div
                 let secondDiv= $("<div>");
-                secondDiv.addClass("col s12 m7");
+                secondDiv.addClass("col s12 m4");
                     // creates the card div
                     let thirdDiv= $("<div>");
                     thirdDiv.addClass("card");
@@ -101,25 +102,26 @@ function callDrink () {
                         fourthDiv.addClass("card-image");
                         let drinkImg = $("<img>");
                         // Creates a src url for the img element
-                        drinkImg.attr("src", response[i].strDrinkThumb);
+                        drinkImg.attr("src", drinks[i].strDrinkThumb);
                     // creates a text div (where our title goes)
                     let fifthDiv= $("<div>");
                     fifthDiv.addClass("card-content");
                         // Creates drink text
-                        let drinkTitle = $("<h5>"  + response[i].strDrink + "</h5>");
+                        let drinkTitle = $("<h5>"  + drinks[i].strDrink + "</h5>");
                     let sixthDiv= $("<div>");
                     sixthDiv.addClass("card-action");
                     // let firstAnchor = $("<a>" + response[i].);
 
             // Appends the div to the appropriate id on the page
-            $("#results").append(newDiv);
-            vewDiv.appendChild(secondDiv);
-            secondDiv.appendChild(thirdDiv);
-            thirdDiv.appendChild(fourthDiv);
-            fourthDiv.appendChild(drinkImg);
-            thirdDiv.appendChild(fifthDiv);
+            thirdDiv.append(sixthDiv);
             fifthDiv.append(drinkTitle);
-            thirdDiv.appendChild(sixthDiv);
+            thirdDiv.append(fifthDiv);
+            fourthDiv.append(drinkImg);
+            thirdDiv.append(fourthDiv);
+            secondDiv.append(thirdDiv);
+            
+
+            $("#results").append(secondDiv);
         }
     })
 };
