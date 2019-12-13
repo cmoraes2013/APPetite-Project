@@ -7,6 +7,7 @@ var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredient
 
 
 let searchValue = $("#searchBtn").on("click", function(){
+    document.location.href = "recipe.html";
     $.ajax({
         url: queryURL,
         method: "GET"
