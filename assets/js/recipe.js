@@ -24,7 +24,7 @@ let searchValue = $("#searchBtn").on("click", function(){
             // creates a p tag with forcasted temperature
             let ingredientsUsed = $("<p>This will use " + response[i].usedIngredientCount + " of your ingredients!</p>")
             //add classes to the element
-            // recipeTitle.addClass("card-title text-center marginTop");
+            recipeTitle.addClass("card-title text-center marginTop");
             //add class to the ingredient element
             // ingredientsUsed.addClass("card-text");
             // Creates an img tag to display the forcast icon
