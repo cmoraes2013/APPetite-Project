@@ -1,5 +1,10 @@
 body {
+
     background-image: url("../images/background-image.jpg");
+    /* The image used */
+    /* background-image: url(assets\images\background-image.jpg); */
+    /* Full height */
+
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
