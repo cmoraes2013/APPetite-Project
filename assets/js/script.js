@@ -1,5 +1,5 @@
 // JavaScript Sheet
-
+AOS.init();
 
 $("#searchBtn").on("click", function(){
 document.location.href = "recipe.html";
