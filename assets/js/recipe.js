@@ -88,9 +88,6 @@ function callDrink () {
         // for loop over the array to populate data
         for (let i = 0; i < drinks.length; i ++) {
             console.log(i);
-            
-            //Creates a new row div
-           
                 //Creates column div
                 let secondDiv= $("<div>");
                 secondDiv.addClass("col s12 m4");
@@ -119,8 +116,6 @@ function callDrink () {
             fourthDiv.append(drinkImg);
             thirdDiv.append(fourthDiv);
             secondDiv.append(thirdDiv);
-            
-
             $("#results").append(secondDiv);
         }
     })
