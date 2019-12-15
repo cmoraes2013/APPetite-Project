@@ -19,54 +19,100 @@ $("#drinkBtn").on("click", function(){
     // getDrinkRecipe("12914")
 });
 
+
 function callFood () {
-    var textValueStorage = localStorage.getItem("searchValue");
+
+    var textValueStorage = localStorage.getItem("searchValue")
     console.log(textValueStorage);
 
-    var apiKey = "05e8620a0264437bb9d81bca51284a17";
-    var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=" + textValueStorage + "&apiKey=" + apiKey;
-
+    var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response) {
+        var food = response.hits
         console.log(response);
-        // searchResults = response;
-        document.location.href = "recipe.html";
 
         //empties out dynamically created elements from previous search
-        // $("#results").empty();
-        // for loop over the array to populate data
-        for (let i = 0; i < response.length; i ++) {
-            
-            //Creates a new div
-            let newDiv= $("<div>");
-            // Creates new h4 t display the recipe's title
-            let recipeTitle = $("<h5>"  + response[i].title + "</h5>");
-            // creates a p tag with forcasted temperature
-            let ingredientsUsed = $("<p>This will use " + response[i].usedIngredientCount + " of your ingredients!</p>")
-            //add classes to the element
-            recipeTitle.addClass("card-title text-center marginTop");
-            //add class to the ingredient element
-            // ingredientsUsed.addClass("card-text");
-            // Creates an img tag to display the forcast icon
-            let recipeImg = $("<img>");
-            // Creates a src url for the img element
-            recipeImg.attr("src", response[i].image);
-            //Adds a class (with img width and height) to the img element
-            // recipeImg.addClass("card-img");
-            //adds classes to the div element to style
-            // newDiv.addClass("");
-            //Appends all the different elements to the div
-            newDiv.append(recipeTitle);
-            newDiv.append(ingredientsUsed);
-            newDiv.append(recipeImg);
+        $("#results").empty();
+        // for loop over the array to populate datae
+        for (let i = 0; i < food.length; i ++) {
+            // console.log(i);       
+                let foodCardDiv= $("<div>");
+                foodCardDiv.addClass("col s12 m6");
+                    // creates the card div
+                    let imgCardDiv= $("<div>");
+                    imgCardDiv.addClass("card");
+                        // creates an image div
+                        let imgDiv= $("<div>");
+                        imgDiv.addClass("card-image waves-effect waves-block waves-light");
+                        //creates an html img tag
+                        let recipeImg = $("<img>");
+                        // Creates a src url for the img element
+                        recipeImg.attr("src", food[i].recipe.image);
+                        //adds a class to the drink image
+                        recipeImg.addClass("activator")
+                    // creates a text div (where our title goes)
+                    let recipeTitleDiv= $("<div>");
+                    recipeTitleDiv.addClass("card-content");
+                        //adds a span element to the drink div
+                        let titleDivSpan = $("<span>");
+                        titleDivSpan.addClass("card-title grey-text text-darken-4");
+                        //adds "more vert" button to the card
+                        let showRecipe = $("<i>more_vert</i>");
+                        showRecipe.addClass("material-icons right activator");
+                        titleDivSpan.append(showRecipe);
+                        // Creates drink text
+                        let recipeTitle = $("<h5>" + food[i].recipe.label + "</h5>");
+                    //Creates a div for the recipe to be displayed in
+                    let recipeDiv= $("<div>");
+                    recipeDiv.addClass("card-reveal");
+                        //adds a span element to the drink div
+                        let recipeDivSpan = $("<span>" + food[i].recipe.label + "</span>");
+                        recipeDivSpan.addClass("card-title grey-text text-darken-4");
+                        recipeDiv.append(recipeDivSpan);
+                        //adds "more vert" button to the card
+                        let closeRecipe = $("<i>" + "close" + "</i>");
+                        closeRecipe.addClass("material-icons right");
+                        recipeDivSpan.append(closeRecipe);
+
+                        //For populating incredient list to card:
+                        //puts the ingredientsHeader on the card
+                        let ingredientsHeader = $("<h6>Ingredients:</h6>");
+                        recipeDiv.append(ingredientsHeader);
+                        //Creates an unordered list for ingredients
+                        let ingList = $("<ul>");
+
+                        // creates and populates ingredients with amounts:
+                        for (let i = 0; i < food[i].recipe.ingredients.length; i++) {
+                            let ingredient = food[i].recipe.ingredients
+                            //append a new list item with measures and ingredients
+                            let ingLi = $("<li>" + ingredient + "</li>")
+                            ingList.append(ingLi);
+                        }
+                        //appends measures and ingredients to the page
+                        recipeDiv.append(ingList);
+                         //puts the recipe header on the card
+                        let recipeHeader = $("<h6>Recipe:</h6>");
+                        recipeDiv.append(recipeHeader);
+                        let recipeText = $("<p> Find out how to cook this dish here! " + food[i].recipe.url + "</p>");
+                        recipeDiv.append(recipeText);
+
             // Appends the div to the appropriate id on the page
-            $("#results").append(newDiv);
+            recipeTitleDiv.append(titleDivSpan);
+            recipeTitleDiv.append(recipeTitle);
+            imgDiv.append(recipeImg);
+            imgCardDiv.append(imgDiv);
+            imgCardDiv.append(recipeTitleDiv);
+            imgCardDiv.append(recipeDiv);
+            foodCardDiv.append(imgCardDiv);
+            $("#results").append(foodCardDiv);
+            
         }
     })
 };
+
 
 
 function callDrink () {
@@ -89,7 +135,7 @@ function callDrink () {
         for (let i = 0; i < drinks.length; i ++) {
             // console.log(i);       
                 let drinkCardDiv= $("<div>");
-                drinkCardDiv.addClass("col s12 l6");
+                drinkCardDiv.addClass("col s12 m6");
                     // creates the card div
                     let imgCardDiv= $("<div>");
                     imgCardDiv.addClass("card");
