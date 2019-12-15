@@ -6,7 +6,7 @@ $(document).ready(function() {
 // var searchResults;
 
 // We immediately call food, when we come to this page
-    callFood()
+    // callFood()
 
 // Populate results from our food recipe function when this button is clicked
 $("#foodBtn").on("click", function(){
@@ -19,7 +19,7 @@ $("#drinkBtn").on("click", function(){
 });
 
 function callFood () {
-    var textValueStorage = localStorage.getItem("searchValue")
+    var textValueStorage = localStorage.getItem("searchValue");
     console.log(textValueStorage);
 
     var apiKey = "05e8620a0264437bb9d81bca51284a17";
@@ -35,7 +35,7 @@ function callFood () {
         document.location.href = "recipe.html";
 
         //empties out dynamically created elements from previous search
-        $("#results").empty();
+        // $("#results").empty();
         // for loop over the array to populate data
         for (let i = 0; i < response.length; i ++) {
             
@@ -110,11 +110,13 @@ function callDrink () {
                     // let firstAnchor = $("<a>" + response[i].);
 
             // Appends the div to the appropriate id on the page
-            thirdDiv.append(sixthDiv);
+            // thirdDiv.append(sixthDiv);
             fifthDiv.append(drinkTitle);
-            thirdDiv.append(fifthDiv);
+            // thirdDiv.append(fifthDiv);
             fourthDiv.append(drinkImg);
             thirdDiv.append(fourthDiv);
+            thirdDiv.append(fifthDiv);
+            thirdDiv.append(sixthDiv);
             secondDiv.append(thirdDiv);
             $("#results").append(secondDiv);
         }
