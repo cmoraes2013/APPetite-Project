@@ -107,12 +107,24 @@ function callDrink () {
                     drinkTitleDiv.addClass("card-content");
                         //adds a span element to the drink div
                         let titleDivSpan = $("<span>");
-                        titleDivSpan.addClass("card-title activator grey-text text-darken-4")
+                        titleDivSpan.addClass("card-title grey-text text-darken-4");
+                        //adds "more vert" button to the card
+                        let showRecipe = $("<i>more_vert</i>");
+                        showRecipe.addClass("material-icons right activator");
+                        titleDivSpan.append(showRecipe);
                         // Creates drink text
                         let drinkTitle = $("<h5>" + drinks[i].strDrink + "</h5>");
                     //Creates a div for the recipe to be displayed in
                     let recipeDiv= $("<div>");
                     recipeDiv.addClass("card-reveal");
+                        //adds a span element to the drink div
+                        let recipeDivSpan = $("<span>" + drinks[i].strDrink + "</span>");
+                        recipeDivSpan.addClass("card-title grey-text text-darken-4");
+                        recipeDiv.append(recipeDivSpan);
+                        //adds "more vert" button to the card
+                        let closeRecipe = $("<i>" + "close" + "</i>");
+                        closeRecipe.addClass("material-icons right");
+                        recipeDivSpan.append(closeRecipe);
 
 
                     // Find drink Id#
@@ -129,7 +141,7 @@ function callDrink () {
 
                         //For populating incredient list to card:
                         //puts the ingredientsHeader on the card
-                        let ingredientsHeader = $("<h5>Ingredients:</h5>");
+                        let ingredientsHeader = $("<h6>Ingredients:</h6>");
                         recipeDiv.append(ingredientsHeader);
                         //Creates an unordered list for ingredients
                         let ingList = $("<ul>");
@@ -147,7 +159,7 @@ function callDrink () {
                         //appends measures and ingredients to the page
                         recipeDiv.append(ingList);
                          //puts the recipe header on the card
-                        let recipeHeader = $("<h5>Recipe:</h5>");
+                        let recipeHeader = $("<h6>Recipe:</h6>");
                         recipeDiv.append(recipeHeader);
                         let recipeText = $("<p>" + recipe.strInstructions + "</p>");
                         recipeDiv.append(recipeText);
