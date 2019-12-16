@@ -28,13 +28,11 @@ function callFood () {
         method: "GET"
     }).then(function(response) {
         var food = response.hits
-        console.log(response);
 
         //empties out dynamically created elements from previous search
         $("#results").empty();
         // for loop over the array to populate datae
-        for (let i = 0; i < food.length; i ++) {
-            console.log(i);       
+        for (let i = 0; i < food.length; i ++) {      
                 let foodCardDiv= $("<div>");
                 foodCardDiv.addClass("col s12 m6 xl4 recipe");
                     // creates the card div
@@ -49,6 +47,7 @@ function callFood () {
                         recipeImg.attr("src", food[i].recipe.image);
                         //adds a class to the drink image
                         recipeImg.addClass("activator")
+
                     // creates a text div (where our title goes)
                     let recipeTitleDiv= $("<div>");
                     recipeTitleDiv.addClass("card-content");
@@ -57,7 +56,6 @@ function callFood () {
                         titleDivSpan.addClass("card-title grey-text text-darken-4");
                         //adds "more vert" button to the card
                         let showRecipe = $("<i>more_vert</i>");
-// Figure out how to line up icons and words. Maybe rows and columns?
                         showRecipe.addClass("s1 material-icons right activator");
                         titleDivSpan.append(showRecipe);
                         // Creates drink text
@@ -98,6 +96,7 @@ function callFood () {
                             let ingLi = $("<li> " + ingredient + "</li>")
                             ingList.append(ingLi);
                         }
+
                         //appends measures and ingredients to the page
                         recipeDiv.append(ingList);
                          //puts the recipe header on the card
@@ -134,10 +133,10 @@ function callDrink () {
         method: "GET"
     }).then(function(response) {
         var drinks = response.drinks
-        console.log(drinks);
 
         //empties out dynamically created elements from previous search
         $("#results").empty();
+
         //if there aren't any matches, display:
         if (response == "") {
             //Creates a div around the card
@@ -158,7 +157,6 @@ function callDrink () {
                 errorTextDiv.addClass("col s10 recipeError");
                 let errorTextSpan = $("<span>Oh no! A friendly llama must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. Try searching again!</span>")
 
-                
                 imageCol.append(circleImg);
                 wrapper.append(imageCol);
                 errorTextDiv.append(errorTextSpan);
@@ -227,7 +225,6 @@ function callDrink () {
                         url: secondQueryURL,
                         method: "GET"
                     }).then(function(response) {
-                        console.log(response.drinks[0]);
                         let recipe = response.drinks[0];
 
                         //For populating incredient list to card:
