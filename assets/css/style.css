@@ -7,16 +7,17 @@ body {
 
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: initial;
     background-size: cover;
     z-index: -1;
   }
 
   .top-bar{
     background-color: olivedrab;
-    height: 60px;
+    height: 65px;
     background: rgba(2, 2, 2, 0.5);
-}
+    border-bottom: white solid 2px;
+  }
 
 .myRecipesBtn{
   font-family: 'Courier New', Courier, monospace;
@@ -69,13 +70,20 @@ body {
       padding-top: 25px;
       margin-top: 75px;
       border-radius: 25px;
-      background: rgba(2, 2, 2, 0.5);   
+      background: rgba(2, 2, 2, 0.5); 
+      border: white solid 2px;  
   }
 
   #jumbotronHeader{
       color: rgb(0, 113, 150);
       text-shadow: 2px 2px 4px white;
       margin: 20px auto; 
+  }
+
+  #appDescription{
+    font-size: small;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   .modalBtn{
