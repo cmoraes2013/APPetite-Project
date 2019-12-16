@@ -196,6 +196,15 @@ function callDrink () {
                         titleDivSpan.append(showRecipe);
                         // Creates drink text
                         let drinkTitle = $("<h5>" + drinks[i].strDrink + "</h5>");
+
+                    // add save feature
+                    let saveFeature = $("<h6>Save to favorites</h6>")
+                    saveFeature.addClass("s9")
+                    let saveIcon = $("<span><i>save</i></span>");
+                    saveIcon.addClass("material-icons right s1 saveBtn");
+                    drinkTitle.append(saveFeature);
+                    drinkTitle.append(saveIcon);
+
                     //Creates a div for the recipe to be displayed in
                     let recipeDiv= $("<div>");
                     recipeDiv.addClass("card-reveal");
@@ -229,14 +238,17 @@ function callDrink () {
                         let ingList = $("<ul>");
 //This for loop needs some help...
                         // creates and populates ingredients with amounts:
-                        for (let i = 0; i < 15; i++) {
+                        for (let i = 1; i < 16; i++) {
                             // if there is no ingredient to append, return this loop
                             if (recipe["strIngredient" + i ] === null){
                                 recipe["strIngredient" + i ] = ""
                             }
+                            if (recipe["strMeasure" + i ] === null){
+                                recipe["strMeasure" + i ] = ""
+                            }
                             //append a new list item with measures and ingredients
                             // console.log(recipe["strMeasure"+i])
-                            let ingLi = $("<li>" + recipe["strMeasure" + i ] + ": " + recipe["strIngredient" + i ]+ "</li>")
+                            let ingLi = $("<li>" + recipe["strMeasure" + i ] + recipe["strIngredient" + i ]+ "</li>")
                             ingList.append(ingLi);
                         }
                         //appends measures and ingredients to the page
