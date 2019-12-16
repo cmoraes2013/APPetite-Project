@@ -16,14 +16,13 @@ body {
 .myRecipesBtn{
   font-family: 'Courier New', Courier, monospace;
   border-radius: 10px;
-  margin: auto;
   padding: 10px 15px 10px 15px;
-  /* color: #fae206; */
   color: white;
-  font-size: larger; 
-  font-weight: 900;
+  font-size: large; 
+  font-weight: 800;
   border: white solid;
   box-shadow: 5px 5px 5px black;
+  
 }
 
 .myRecipesBtn span {
@@ -118,4 +117,8 @@ body {
 .modalBtn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.ingSrc{
+  background-color: black;
 }
