@@ -1,19 +1,13 @@
 body {
-
     background-image: url("../images/background-image.jpg");
-    /* The image used */
-    /* background-image: url(assets\images\background-image.jpg); */
-    /* Full height */
-
     height: 100%;
     background-position: center;
-    background-repeat: initial;
+    background-repeat: repeat;
     background-size: cover;
     z-index: -1;
   }
 
   .top-bar{
-    background-color: olivedrab;
     height: 65px;
     background: rgba(2, 2, 2, 0.5);
     border-bottom: white solid 2px;
