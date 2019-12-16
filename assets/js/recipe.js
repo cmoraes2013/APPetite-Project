@@ -1,26 +1,27 @@
 // Recipes Page
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-// We immediately call food, when we come to this page
+    // We immediately call food, when we come to this page
     callFood()
 
-// Populate results from our food recipe function when this button is clicked
-$("#foodBtn").on("click", function(){
-    callFood()
-});
+    // Populate results from our food recipe function when this button is clicked
+    $("#foodBtn").on("click", function () {
+        callFood()
+    });
 
-// Populate results from our drink recipe function when this button is clicked
-$("#drinkBtn").on("click", function(){
-    callDrink()
-});
+    // Populate results from our drink recipe function when this button is clicked
+    $("#drinkBtn").on("click", function () {
+        callDrink()
+    });
 
-function callFood () {
+    function callFood() {
 
-    var textValueStorage = localStorage.getItem("searchValue")
-    console.log(textValueStorage);
+        var textValueStorage = localStorage.getItem("searchValue")
+        console.log(textValueStorage);
 
-    var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
+
+        var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
 
     $.ajax({
         url: queryURL,
@@ -91,11 +92,12 @@ function callFood () {
                         recipeTitle.addClass("s9");
                         // add save feature
                         let saveFeature = $("<h6>Save to favorites</h6>")
-                        saveFeature.addClass("s9");
+                        saveFeature.addClass("s saveBtn")
                         let saveIcon = $("<span><i>save</i></span>");
                         saveIcon.addClass("material-icons right s1 saveBtn");
+                        saveIcon.attr("data-label", food[i].recipe.label);
                         recipeTitle.append(saveFeature);
-                        saveFeature.append(saveIcon);
+                        recipeTitle.append(saveIcon);
                     
                         //Creates a div for the recipe to be displayed in
                     let recipeDiv= $("<div>");
@@ -109,12 +111,13 @@ function callFood () {
                         closeRecipe.addClass("material-icons right");
                         recipeDivSpan.append(closeRecipe);
 
-                        //For populating incredient list to card:
-                        //puts the ingredientsHeader on the card
-                        let ingredientsHeader = $("<h6>Ingredients:</h6>");
-                        recipeDiv.append(ingredientsHeader);
-                        //Creates an unordered list for ingredients
-                        let ingList = $("<ul>");
+
+                //For populating incredient list to card:
+                //puts the ingredientsHeader on the card
+                let ingredientsHeader = $("<h6>Ingredients:</h6>");
+                recipeDiv.append(ingredientsHeader);
+                //Creates an unordered list for ingredients
+                let ingList = $("<ul>");
 
                         let ingredients = food[i].recipe.ingredientLines
                         // creates and populates ingredients with amounts:
@@ -175,11 +178,13 @@ function callDrink () {
                 let wrapper = $("<div>");
                 wrapper.addClass("row vailgn-wrapper recipeError");
                 //creates a div that holds an image
+
                     let imageCol = $("<div>");
                     imageCol.addClass("col s2");
                     let circleImg = $("<i>");
                     circleImg.addClass("fas fa-hippo");
                     circleImg.attr("id", "recipeErrori");
+
                 //creates a div to hold the error text
                 let errorTextDiv = $("<div>");
                 errorTextDiv.addClass("col s10");
@@ -191,28 +196,28 @@ function callDrink () {
                 wrapper.append(errorTextDiv);
                 responseNone.append(wrapper);
                 $("#results").append(responseNone);
-            }
-        else {
-        // for loop over the array to populate data
-        for (let i = 0; i < drinks.length; i ++) {
-            // console.log(i);       
-                let drinkCardDiv= $("<div>");
-                drinkCardDiv.addClass("col s12 m6 xl4 recipe");
+            } else {
+                // for loop over the array to populate data
+                for (let i = 0; i < drinks.length; i++) {
+                    // console.log(i);       
+                    let drinkCardDiv = $("<div>");
+                    drinkCardDiv.addClass("col s12 m6 xl4 recipe");
                     // creates the card div
-                    let imgCardDiv= $("<div>");
+                    let imgCardDiv = $("<div>");
                     imgCardDiv.addClass("card large hoverable");
-                        // creates an image div
-                        let imgDiv= $("<div>");
-                        imgDiv.addClass("card-image waves-effect waves-block waves-light");
-                        //creates an html img tag
-                        let drinkImg = $("<img>");
-                        // Creates a src url for the img element
-                        drinkImg.attr("src", drinks[i].strDrinkThumb);
-                        //adds a class to the drink image
-                        drinkImg.addClass("activator")
+                    // creates an image div
+                    let imgDiv = $("<div>");
+                    imgDiv.addClass("card-image waves-effect waves-block waves-light");
+                    //creates an html img tag
+                    let drinkImg = $("<img>");
+                    // Creates a src url for the img element
+                    drinkImg.attr("src", drinks[i].strDrinkThumb);
+                    //adds a class to the drink image
+                    drinkImg.addClass("activator")
                     // creates a text div (where our title goes)
-                    let drinkTitleDiv= $("<div>");
+                    let drinkTitleDiv = $("<div>");
                     drinkTitleDiv.addClass("card-content");
+
                         //adds a span element to the drink div
                         let titleDivSpan = $("<span>");
                         titleDivSpan.addClass("card-title grey-text text-darken-4");
@@ -232,16 +237,16 @@ function callDrink () {
                     saveFeature.append(saveIcon);
 
                     //Creates a div for the recipe to be displayed in
-                    let recipeDiv= $("<div>");
+                    let recipeDiv = $("<div>");
                     recipeDiv.addClass("card-reveal");
-                        //adds a span element to the drink div
-                        let recipeDivSpan = $("<span>" + drinks[i].strDrink + "</span>");
-                        recipeDivSpan.addClass("card-title grey-text text-darken-4");
-                        recipeDiv.append(recipeDivSpan);
-                        //adds "more vert" button to the card
-                        let closeRecipe = $("<i>" + "close" + "</i>");
-                        closeRecipe.addClass("material-icons right");
-                        recipeDivSpan.append(closeRecipe);
+                    //adds a span element to the drink div
+                    let recipeDivSpan = $("<span>" + drinks[i].strDrink + "</span>");
+                    recipeDivSpan.addClass("card-title grey-text text-darken-4");
+                    recipeDiv.append(recipeDivSpan);
+                    //adds "more vert" button to the card
+                    let closeRecipe = $("<i>" + "close" + "</i>");
+                    closeRecipe.addClass("material-icons right");
+                    recipeDivSpan.append(closeRecipe);
 
 
                     // Find drink Id#
@@ -252,7 +257,9 @@ function callDrink () {
                     $.ajax({
                         url: secondQueryURL,
                         method: "GET"
+
                     }).then(function(response) {
+
                         let recipe = response.drinks[0];
 
                         //For populating incredient list to card:
@@ -266,19 +273,20 @@ function callDrink () {
                         for (let i = 1; i < 16; i++) {
                             // if there is no ingredient (or measure) to append, make their value= ""
                             if (recipe["strIngredient" + i ] === null){
-                                recipe["strIngredient" + i ] = ""
+                                recipe["strIngredient" + i ] = "";
                             }
                             if (recipe["strMeasure" + i ] === null){
-                                recipe["strMeasure" + i ] = ""
+                                recipe["strMeasure" + i ] = "";
                             }
                             //append a new list item with measures and ingredients
                             // console.log(recipe["strMeasure"+i])
+
                             let ingLi = $("<li>" + recipe["strMeasure" + i ] + recipe["strIngredient" + i ]+ "</li>")
                             ingList.append(ingLi);
                         }
                         //appends measures and ingredients to the page
                         recipeDiv.append(ingList);
-                         //puts the recipe header on the card
+                        //puts the recipe header on the card
                         let recipeHeader = $("<h6>Recipe:</h6>");
                         recipeDiv.append(recipeHeader);
                         let recipeText = $("<p>" + recipe.strInstructions + "</p>");
@@ -287,21 +295,44 @@ function callDrink () {
 
 
 
-            // Appends the div to the appropriate id on the page
-            drinkTitleDiv.append(titleDivSpan);
-            drinkTitleDiv.append(drinkTitle);
-            imgDiv.append(drinkImg);
-            imgCardDiv.append(imgDiv);
-            imgCardDiv.append(drinkTitleDiv);
-            imgCardDiv.append(recipeDiv);
-            drinkCardDiv.append(imgCardDiv);
-            $("#results").append(drinkCardDiv);
-        // drinkRecipe(drinks[i].idDrink)
-        }
+                    // Appends the div to the appropriate id on the page
+                    drinkTitleDiv.append(titleDivSpan);
+                    drinkTitleDiv.append(drinkTitle);
+                    imgDiv.append(drinkImg);
+                    imgCardDiv.append(imgDiv);
+                    imgCardDiv.append(drinkTitleDiv);
+                    imgCardDiv.append(recipeDiv);
+                    drinkCardDiv.append(imgCardDiv);
+                    $("#results").append(drinkCardDiv);
+                    // drinkRecipe(drinks[i].idDrink)
+                }
+            }
+        })
+    };
+
+    // Run the save function when the dynamic save button is clicked
+    $(document).on("click", ".saveBtn", save);
+   
+
+    // This function will save the current recipe to the favorites page
+    function save()
+    {
+        // Get the name of the recipe from the label
+        var label = $(this).data("label");
+        // Create an array to store each favorited recipe
+        var myRecipesArray = JSON.parse(localStorage.getItem("myRecipes"));    
+        
+        
+        // If there is no recipes, then the array will appear null and need to be assigned to an array
+        if(myRecipesArray === null)
+        {
+            myRecipesArray = [];
+        }     
+
+        // Push the label into the array
+        myRecipesArray.push(label)
+       
+        // If this save button is clicked save the recipe to myRecipes and save the id with it
+        localStorage.setItem("myRecipes", JSON.stringify(myRecipesArray));
     }
-})
-};
-
-
 });
-
