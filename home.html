@@ -9,7 +9,7 @@
   <!--CSS Framework Foundation Link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/css/foundation-float.css" />
   <!--Font Awesome Link-->
-  <script src="https://kit.fontawesome.com/83f190f6d5.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/83f190f6d5.js" crossorigin="anonymous"></script> -->
   <!--CSS Stylesheet Link-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   
@@ -43,9 +43,13 @@
 
   <!--This is the modal pop-up-->
   <div class="reveal" id="Modal1" data-reveal>
-    <form> What ingredients are you working with?
-        <input type="text"></form>
-    <button><i class="fas fa-search"></i></button>
+    <form>
+      What ingredients are you working with?<br>
+      <input type="text" id="textValue">
+      <button type="submit" id="searchBtn">Submit</button>
+    </form>
+    
+    
 
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
@@ -65,7 +69,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.js "></script>
 
-  <script src = "assets/js/app.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src = "assets/js/vendor/foundation.js"></script>
   <script src = "assets/js/app.js"></script>
   
