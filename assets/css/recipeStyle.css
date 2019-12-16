@@ -45,8 +45,25 @@ body {
     width: 0 auto;
     overflow: hidden;
 }
-
+/* Sets margin for h5s-- which allows the save button to show up next to the recipe title */
 h5 {
     margin: 0 auto;
 }
+/* Adds margin under the buttons at the top of the page */
+#topDiv {
+    margin-bottom: 40px;
+}
+/* Error msg that shows when something is searched for, but there is no matching recipe */
+.recipeError {
+    padding: 20px 20px 0px;
+}
+/* Gives font size to the hippo fontAwesome */
+#recipeErrori {
+    font-size: 80px;
+}
 
+@media only screen and (max-width: 700px) {
+    #recipeErrori {
+        font-size: 50px;
+    }
+  }

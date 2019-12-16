@@ -15,7 +15,6 @@ $("#drinkBtn").on("click", function(){
     callDrink()
 });
 
-
 function callFood () {
 
     var textValueStorage = localStorage.getItem("searchValue")
@@ -31,7 +30,36 @@ function callFood () {
 
         //empties out dynamically created elements from previous search
         $("#results").empty();
-        // for loop over the array to populate datae
+
+        //if there aren't any matches, display:
+        if (response == "") {
+            //Creates a div around the card
+            let responseNone = $("<div>");
+            //adds classes to the initial div
+            responseNone.addClass("col card-panel grey lighten-5 z-depth-1 center-align hoverable")
+                // creates another div with row/wrapper classes
+                let wrapper = $("<div>");
+                wrapper.addClass("row vailgn-wrapper recipeError");
+                //creates a div that holds an image
+                    let imageCol = $("<div>");
+                    imageCol.addClass("col s2");
+                    let circleImg = $("<i>");
+                    circleImg.addClass("fas fa-hippo");
+                    circleImg.attr("id", "recipeErrori");
+                //creates a div to hold the error text
+                let errorTextDiv = $("<div>");
+                errorTextDiv.addClass("col s10");
+                let errorTextSpan = $("<span><h6>Oh no! A very hungry hippo must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. Try searching again!</span><h6>")
+
+                imageCol.append(circleImg);
+                wrapper.append(imageCol);
+                errorTextDiv.append(errorTextSpan);
+                wrapper.append(errorTextDiv);
+                responseNone.append(wrapper);
+                $("#results").append(responseNone);
+            }
+        else {
+        // for loop over the array to populate data
         for (let i = 0; i < food.length; i ++) {      
                 let foodCardDiv= $("<div>");
                 foodCardDiv.addClass("col s12 m6 xl4 recipe");
@@ -63,11 +91,11 @@ function callFood () {
                         recipeTitle.addClass("s9");
                         // add save feature
                         let saveFeature = $("<h6>Save to favorites</h6>")
-                        saveFeature.addClass("s9")
+                        saveFeature.addClass("s9");
                         let saveIcon = $("<span><i>save</i></span>");
                         saveIcon.addClass("material-icons right s1 saveBtn");
                         recipeTitle.append(saveFeature);
-                        recipeTitle.append(saveIcon);
+                        saveFeature.append(saveIcon);
                     
                         //Creates a div for the recipe to be displayed in
                     let recipeDiv= $("<div>");
@@ -142,20 +170,20 @@ function callDrink () {
             //Creates a div around the card
             let responseNone = $("<div>");
             //adds classes to the initial div
-            responseNone.addClass("col 12 card-panel grey lighten-5 z-depth-1 center-align hoverable")
+            responseNone.addClass("col card-panel grey lighten-5 z-depth-1 center-align hoverable")
                 // creates another div with row/wrapper classes
                 let wrapper = $("<div>");
-                wrapper.addClass("row vailgn-wrapper");
+                wrapper.addClass("row vailgn-wrapper recipeError");
                 //creates a div that holds an image
                     let imageCol = $("<div>");
                     imageCol.addClass("col s2");
-                    let circleImg = $("<img>");
-                    circleImg.addClass("responsive-img");
-                    circleImg.attr("src", "assets/images/llama.jpg")
+                    let circleImg = $("<i>");
+                    circleImg.addClass("fas fa-hippo");
+                    circleImg.attr("id", "recipeErrori");
                 //creates a div to hold the error text
                 let errorTextDiv = $("<div>");
-                errorTextDiv.addClass("col s10 recipeError");
-                let errorTextSpan = $("<span>Oh no! A friendly llama must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. Try searching again!</span>")
+                errorTextDiv.addClass("col s10");
+                let errorTextSpan = $("<span><h6>Oh no! A very hungry hippo must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. Try searching again!</span><h6>")
 
                 imageCol.append(circleImg);
                 wrapper.append(imageCol);
