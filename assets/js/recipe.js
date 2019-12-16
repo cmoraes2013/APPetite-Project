@@ -229,15 +229,16 @@ function callDrink () {
                         let ingList = $("<ul>");
 //This for loop needs some help...
                         // creates and populates ingredients with amounts:
-                        // for (let i = 0; i < 15; i++) {
-                        //     // if there is no ingredient to append, return this loop
-                        //     if (recipe.strIngredient + [i] === null){
-                        //         return
-                        //     }
-                        //     //append a new list item with measures and ingredients
-                        //     let ingLi = $("<li>" + recipe.strMeasure + [i]  + ": " + recipe.strIngredient + [i]+ "</li>")
-                        //     ingList.append(ingLi);
-                        // }
+                        for (let i = 0; i < 15; i++) {
+                            // if there is no ingredient to append, return this loop
+                            if (recipe["strIngredient" + i ] === null){
+                                recipe["strIngredient" + i ] = ""
+                            }
+                            //append a new list item with measures and ingredients
+                            // console.log(recipe["strMeasure"+i])
+                            let ingLi = $("<li>" + recipe["strMeasure" + i ] + ": " + recipe["strIngredient" + i ]+ "</li>")
+                            ingList.append(ingLi);
+                        }
                         //appends measures and ingredients to the page
                         recipeDiv.append(ingList);
                          //puts the recipe header on the card
