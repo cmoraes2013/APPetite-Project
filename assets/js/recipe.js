@@ -15,6 +15,11 @@ $(document).ready(function () {
         callDrink()
     });
 
+    $("#savedRecipeBtn").on("click", function () {
+        document.location.href = "saved.html";
+    });
+
+
     function callFood() {
 
         var textValueStorage = localStorage.getItem("searchValue")
@@ -147,8 +152,8 @@ $(document).ready(function () {
             $("#results").append(foodCardDiv);
             
         }
-    })
-};
+    }
+});
 
 
 
@@ -334,5 +339,6 @@ function callDrink () {
        
         // If this save button is clicked save the recipe to myRecipes and save the id with it
         localStorage.setItem("myRecipes", JSON.stringify(myRecipesArray));
+    }
     }
 });
