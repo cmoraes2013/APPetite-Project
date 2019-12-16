@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    /> -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/css/foundation-float.css" />
- 
+  
+  <!--CSS Framework Foundation Link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/css/foundation-float.css" />
+  <!--Font Awesome Link-->
+  <!-- <script src="https://kit.fontawesome.com/83f190f6d5.js" crossorigin="anonymous"></script> -->
+  <!--CSS Stylesheet Link-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-    <link rel="stylesheet" href="APPetite-Project/assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <title>APPetite</title>
-
+  <title>APPetite</title>
 </head>
+
 <body>
 
   <!--This is the nav bar that will redirect user to their saved recipes-->
   <div class="top-bar">
-    <button onclick="location.href = 'recipe.html'" class="myRecipesBtn" style="vertical-align:middle"><span> My Recipes </span></button></div>
-    <!-- <i class="fas fa-drumstick-bite"></i> -->
+    <button onclick="location.href = 'saved.html'" class="myRecipesBtn" style="vertical-align:middle">
+      <span> My Recipes </span>
+    </button>
+  </div>
+
   <!--This is the logo-->
   <div class="jumbotron">
     <p id="jumbotronHeader">APPetite</p>
+    <p id="appDescription">
+      Tell us what ingredients you have, and we'll give you the perfect dish!
+    </p>
   </div>
+
   <!--This is where the user will click to input their ingredients in the modal-->
-  <p>
-    <div class="searchInput">
-      <input type="text" id="textValue"><br>
-      <button type="submit" id="searchBtn">Submit</button>
-    </div>
-    <button class="modalBtn" data-open="exampleModal1" style="vertical-align:middle"><span>
+
+  <button class="modalBtn" data-open="Modal1" style="vertical-align:middle">
+    <span>
       What's in your fridge?
-      </span></button>
-  </p>
+    </span>
+  </button>
 
   <!--This is the modal pop-up-->
-  <div class="reveal" id="exampleModal1" data-reveal>
-    <h1>Tell us what ingredients you have:</h1>
-        <p class="lead">Your couch. It is mine.</p>
-        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-        <button class="close-button" data-close aria-label="Close modal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button> 
+  <div class="reveal" id="Modal1" data-reveal>
+    <form>
+      What ingredients are you working with?<br>
+      <input type="text" id="textValue">
+      <button type="submit" id="searchBtn">Submit</button>
+    </form>
+    
+    
+
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
 
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/js/foundation.min.js"></script>
 
-  <script>
-    src = "APPetite-Project/assets/js/script.js";
-  </script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/vendor/jquery.js"></script>
   
-  <script>
-    src = "APPetite-Project/assets/js/recipe.js";
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.js "></script>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src = "assets/js/vendor/foundation.js"></script>
+  <script src = "assets/js/app.js"></script>
+  
 
+  <script src = "assets/js/script.js"></script>
+  
 </body>
 
 </html>
