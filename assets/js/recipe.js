@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
 // We immediately call food, when we come to this page
-    // callFood()
+    callFood()
 
 // Populate results from our food recipe function when this button is clicked
 $("#foodBtn").on("click", function(){
@@ -13,7 +13,6 @@ $("#foodBtn").on("click", function(){
 // Populate results from our drink recipe function when this button is clicked
 $("#drinkBtn").on("click", function(){
     callDrink()
-    console.log("I got clicked")
 });
 
 
@@ -40,7 +39,7 @@ function callFood () {
                 foodCardDiv.addClass("col s12 m6 xl4 recipe");
                     // creates the card div
                     let imgCardDiv= $("<div>");
-                    imgCardDiv.addClass("card large");
+                    imgCardDiv.addClass("card large hoverable");
                         // creates an image div
                         let imgDiv= $("<div>");
                         imgDiv.addClass("card-image waves-effect waves-block waves-light");
@@ -144,7 +143,7 @@ function callDrink () {
             //Creates a div around the card
             let responseNone = $("<div>");
             //adds classes to the initial div
-            responseNone.addClass("col 12 card-panel grey lighten-5 z-depth-1 center-align")
+            responseNone.addClass("col 12 card-panel grey lighten-5 z-depth-1 center-align hoverable")
                 // creates another div with row/wrapper classes
                 let wrapper = $("<div>");
                 wrapper.addClass("row vailgn-wrapper");
@@ -172,10 +171,10 @@ function callDrink () {
         for (let i = 0; i < drinks.length; i ++) {
             // console.log(i);       
                 let drinkCardDiv= $("<div>");
-                drinkCardDiv.addClass("col s12 m6");
+                drinkCardDiv.addClass("col s12 m6 xl4 recipe");
                     // creates the card div
                     let imgCardDiv= $("<div>");
-                    imgCardDiv.addClass("card");
+                    imgCardDiv.addClass("card large hoverable");
                         // creates an image div
                         let imgDiv= $("<div>");
                         imgDiv.addClass("card-image waves-effect waves-block waves-light");
