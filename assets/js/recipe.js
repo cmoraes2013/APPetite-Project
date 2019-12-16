@@ -34,7 +34,7 @@ function callFood () {
         $("#results").empty();
         // for loop over the array to populate datae
         for (let i = 0; i < food.length; i ++) {
-            // console.log(i);       
+            console.log(i);       
                 let foodCardDiv= $("<div>");
                 foodCardDiv.addClass("col s12 m6 xl4 recipe");
                     // creates the card div
@@ -198,12 +198,12 @@ function callDrink () {
                         let drinkTitle = $("<h5>" + drinks[i].strDrink + "</h5>");
 
                     // add save feature
-                    let saveFeature = $("<h6>Save to favorites</h6>")
+                    let saveFeature = $("<h6>").text("Save to favorites")
                     saveFeature.addClass("s9")
                     let saveIcon = $("<span><i>save</i></span>");
                     saveIcon.addClass("material-icons right s1 saveBtn");
                     drinkTitle.append(saveFeature);
-                    drinkTitle.append(saveIcon);
+                    saveFeature.append(saveIcon);
 
                     //Creates a div for the recipe to be displayed in
                     let recipeDiv= $("<div>");
@@ -236,10 +236,10 @@ function callDrink () {
                         recipeDiv.append(ingredientsHeader);
                         //Creates an unordered list for ingredients
                         let ingList = $("<ul>");
-//This for loop needs some help...
+
                         // creates and populates ingredients with amounts:
                         for (let i = 1; i < 16; i++) {
-                            // if there is no ingredient to append, return this loop
+                            // if there is no ingredient (or measure) to append, make their value= ""
                             if (recipe["strIngredient" + i ] === null){
                                 recipe["strIngredient" + i ] = ""
                             }
