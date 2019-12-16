@@ -117,7 +117,6 @@ $(document).ready(function () {
                     closeRecipe.addClass("material-icons right");
                     recipeDivSpan.append(closeRecipe);
 
-
                     //For populating incredient list to card:
                     //puts the ingredientsHeader on the card
                     let ingredientsHeader = $("<h6>Ingredients:</h6>");
