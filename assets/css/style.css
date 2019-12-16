@@ -11,27 +11,109 @@ body {
     background-size: cover;
     z-index: -1;
   }
-  .searchInput{
-      width: 100%;
-      
-  }
+
+  .top-bar{
+    background-color: olivedrab;
+    height: 60px;
+    background: rgba(2, 2, 2, 0.5);
+}
+
+.myRecipesBtn{
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 10px;
+  margin: auto;
+  padding: 10px 15px 10px 15px;
+  /* color: #fae206; */
+  color: white;
+  font-size: larger; 
+  font-weight: 900;
+  border: white solid;
+  box-shadow: 5px 5px 5px black;
+}
+
+.myRecipesBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.myRecipesBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.myRecipesBtn:hover span {
+  padding-right: 25px;
+}
+
+.myRecipesBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
   .jumbotron{
       margin: auto;
       height: 300px;
-      width: 550px;
+      width: 750px;
       background-color: white;
-      opacity: 0.5;
       color: black;
       font-family: fantasy;
       text-align: center;
       font-size: 125px;
+      line-height: 1.8;
       padding-top: 25px;
-      
+      margin-top: 75px;
+      border-radius: 25px;
+      background: rgba(2, 2, 2, 0.5);   
   }
-  #jumbotronHeader{
-      text-shadow: 5px 5px grey;
-      margin: 10px auto;
-      
 
+  #jumbotronHeader{
+      color: rgb(0, 113, 150);
+      text-shadow: 2px 2px 4px white;
+      margin: 20px auto; 
   }
+
+  .modalBtn{
+    margin-left: 35%;
+    background: rgba(2, 2, 2, 0.5);
+    border-radius: 10px;
+    border: white solid 2px;
+    color: white;
+    font-weight: 900;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    height: 50px;
+    width: 400px;
+    margin-top: 50px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.modalBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.modalBtn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.modalBtn:hover span {
+  padding-right: 25px;
+}
+
+.modalBtn:hover span:after {
+  opacity: 1;
+  right: 0;
+}
