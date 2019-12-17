@@ -94,6 +94,7 @@ $(document).ready(function () {
                     // creates a text div (where our title goes)
                     let recipeTitleDiv = $("<div>");
                     recipeTitleDiv.addClass("card-content");
+
                     //adds a span element to the drink div
                     let titleDivSpan = $("<span>");
                     titleDivSpan.addClass("card-title grey-text text-darken-4");
@@ -108,9 +109,11 @@ $(document).ready(function () {
                     let saveFeature = $("<h6>Save to favorites</h6>")
                     saveFeature.addClass("s")
                     let saveIcon = $("<i>");
-                    saveIcon.addClass("far fa-save material-icons right s1 saveBtn");
+                    saveIcon.addClass("far fa-save material-icons right s1 saveFood");
+                    saveIcon.attr({"data-label": food[i].recipe.label, "data-img": food[i].recipe.image, "data-link": food[i].recipe.uri});
     // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
                     checkForFavoriteRecipe(food[i].recipe.label, saveIcon)
+
                     
                     saveIcon.attr("data-label", food[i].recipe.label);
                     recipeTitle.append(saveFeature);
@@ -174,6 +177,7 @@ $(document).ready(function () {
             console.log(textValueStorage);
 
             var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + textValueStorage;
+
 
             $.ajax({
                 url: queryURL,
@@ -249,13 +253,14 @@ $(document).ready(function () {
                         let saveFeature = $("<h6>").text("Save to favorites")
                         saveFeature.addClass("s9")
                         let saveIcon = $("<i>");
-                        saveIcon.addClass("far fa-save material-icons right s1 saveBtn");
+                        saveIcon.addClass("far fa-save material-icons right s1 saveDrink");
+                        saveIcon.attr("data-id", drinks[i].idDrink);
+
                         // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
                         
                         checkForFavoriteRecipe(drinks[i].strDrink, saveIcon)
                         drinkTitle.append(saveFeature);
                         saveFeature.append(saveIcon);
-
                         //Creates a div for the recipe to be displayed in
                         let recipeDiv = $("<div>");
                         recipeDiv.addClass("card-reveal");
@@ -330,7 +335,6 @@ $(document).ready(function () {
         }//end of call Drink
    
     // Run the save function when the dynamic save button is clicked
-    $(document).on("click", ".saveBtn", save);
 
     //function to check if a recipe was previously saved
     function checkForFavoriteRecipe(title, span) {
@@ -349,28 +353,61 @@ $(document).ready(function () {
         };
     }
 
+    $(document).on("click", ".saveFood", saveFood);
+    $(document).on("click", ".saveDrink", saveDrink);
+   
+
     // This function will save the current recipe to the favorites page
-    function save() {
-        console.log("yes");
-        
-        $(this).toggleClass('fa-save fa-heart');
+    function saveFood() {
         // Get the name of the recipe from the label
         var label = $(this).data("label");
+        // Get the image of the recipe from
+        var img = $(this).data("img");
+        // Get the url for the recipe
+        var url = $(this).data("link")
         // Create an array to store each favorited recipe
-        var myRecipesArray = JSON.parse(localStorage.getItem("myRecipes"));
 
-
+        var myRecipesArray = JSON.parse(localStorage.getItem("myFood"));    
+        
         // If there is no recipes, then the array will appear null and need to be assigned to an array
         if (myRecipesArray === null) {
             myRecipesArray = [];
         }
 
         // Push the label into the array
-        myRecipesArray.push(label);
+        myRecipesArray.push({label, img, url});
 
+       
         // If this save button is clicked save the recipe to myRecipes and save the id with it
-        localStorage.setItem("myRecipes", JSON.stringify(myRecipesArray));
-    }//end of save function
+        localStorage.setItem("myFood", JSON.stringify(myRecipesArray));
+    }
+
+    // Click the Saved recipe button to send you to the saved recipe page
+    $("#recipeBtn").on("click", function()
+    {
+        document.location.href= "saved.html";
+    })
+
+    function saveDrink()
+    {
+        // Get the drink id
+        var idDrink = $(this).data("id");
+        // Store the drink recipe in the array
+        var myDrinksArray = JSON.parse(localStorage.getItem("myDrink"));
+
+        // If there is no recipes, then the array will appear null and need to be assigned to an array
+        if(myDrinksArray === null)
+        {
+            myDrinksArray = [];
+        }
+
+        // Push drink id into array
+        myDrinksArray.push(idDrink);
+
+        // If this save button is clicked, save the recipe to myDrink 
+        localStorage.setItem("myDrink", JSON.stringify(myDrinksArray));
+    }
+});
 
 
 
