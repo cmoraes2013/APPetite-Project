@@ -27,6 +27,10 @@ $(document).ready(function () {
     $("#savedRecipeBtn").on("click", function () {
         document.location.href = "saved.html";
     });
+    
+    $("#homeBtn").on("click", function () {
+        document.location.href = "index.html";
+    });
 
     function callFood() {
 
