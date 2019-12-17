@@ -4,14 +4,10 @@
 
 body {
 
-    /* background-image: url("../images/background-image.jpg"); */
-    /* The image used */
-    /* background-image: url(assets\images\background-image.jpg); */
-    /* Full height */
-
+    background-image: url("../images/backgroundImg.jpg");
     height: 100%;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: cover;
     z-index: -1;
   }
@@ -54,12 +50,43 @@ h5 {
 }
 /* Adds margin under the buttons at the top of the page */
 #topDiv {
-    margin-bottom: 40px;
+    height: 80px;
+    background: rgba(2, 2, 2, 0.5);
+    border-bottom: white solid 1px;
 }
+
+#foodBtn{
+    border-radius: 10px;
+    border: white solid 1px;
+    background: transparent;
+    margin: 10px 5px 10px 5px; 
+    padding-bottom: 60px; 
+    box-shadow: 2px 2px 2px black;  
+}
+
+#drinkBtn{
+    border-radius: 10px;
+    border: white solid 1px;
+    background: transparent;
+    margin: 10px 5px 10px 5px; 
+    padding-bottom: 60px;  
+    box-shadow: 2px 2px 2px black; 
+}
+
+#savedRecipeBtn{
+    border-radius: 10px;
+    border: white solid 1px;
+    background: transparent;
+    margin: 10px 5px 10px 5px; 
+    padding-bottom: 60px;  
+    box-shadow: 2px 2px 2px black; 
+}
+
 /* Error msg that shows when something is searched for, but there is no matching recipe */
 .recipeError {
     padding: 20px 20px 0px;
 }
+
 /* Gives font size to the hippo fontAwesome */
 #recipeErrori {
     font-size: 80px;
