@@ -11,7 +11,6 @@ $(document).ready(function () {
             localStorage.setItem("searchValue", textValue);
         }
         callFood()
-
     });
 
     // We immediately call food, when we come to this page
