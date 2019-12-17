@@ -336,4 +336,10 @@ function callDrink () {
         // If this save button is clicked save the recipe to myRecipes and save the id with it
         localStorage.setItem("myRecipes", JSON.stringify(myRecipesArray));
     }
+
+    // Click the Saved recipe button to send you to the saved recipe page
+    $("#recipeBtn").on("click", function()
+    {
+        document.location.href= "saved.html";
+    })
 });
