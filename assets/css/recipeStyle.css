@@ -70,3 +70,8 @@ h5 {
           display: none;
       }
   }
+
+/* Change cursor on hover */
+.icon:hover {
+      cursor: pointer;
+  } 
