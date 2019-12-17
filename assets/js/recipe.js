@@ -2,6 +2,17 @@
 
 $(document).ready(function () {
     AOS.init();
+
+    $("#searchInput").keypress(function(event){
+	
+	    var keycode = (event.keyCode ? event.keyCode : event.which);
+	    if(keycode == '13'){
+            let textValue = $("#searchInput").val(); 
+            localStorage.setItem("searchValue", textValue);
+        }
+        callFood()
+    });
+
     // We immediately call food, when we come to this page
     callFood()
 
