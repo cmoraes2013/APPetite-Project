@@ -95,7 +95,7 @@ $(document).ready(function () {
                         saveFeature.addClass("s saveBtn")
                         let saveIcon = $("<span><i>save</i></span>");
                         saveIcon.addClass("material-icons right s1 saveFood");
-                        saveIcon.attr("data-label", food[i].recipe.label);
+                        saveIcon.attr({"data-label": food[i].recipe.label, "data-img": food[i].recipe.image, "data-link": food[i].recipe.uri});
                         recipeTitle.append(saveFeature);
                         recipeTitle.append(saveIcon);
                     
@@ -322,6 +322,10 @@ function callDrink () {
     {
         // Get the name of the recipe from the label
         var label = $(this).data("label");
+        // Get the image of the recipe from
+        var img = $(this).data("img");
+        // Get the url for the recipe
+        var url = $(this).data("link")
         // Create an array to store each favorited recipe
         var myRecipesArray = JSON.parse(localStorage.getItem("myFood"));    
         
@@ -332,7 +336,8 @@ function callDrink () {
         }     
 
         // Push the label into the array
-        myRecipesArray.push(label);
+        myRecipesArray.push({label, img, url});
+
        
         // If this save button is clicked save the recipe to myRecipes and save the id with it
         localStorage.setItem("myFood", JSON.stringify(myRecipesArray));
