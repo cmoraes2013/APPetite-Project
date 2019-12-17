@@ -50,10 +50,10 @@ $(document).ready(function () {
                 //Creates a div around the card
                 let responseNone = $("<div>");
                 //adds classes to the initial div
-                responseNone.addClass("col card-panel grey lighten-5 z-depth-1 center-align hoverable")
+                responseNone.addClass("recipeError col card-panel grey lighten-5 z-depth-1 hoverable")
                 // creates another div with row/wrapper classes
                 let wrapper = $("<div>");
-                wrapper.addClass("row vailgn-wrapper recipeError");
+                wrapper.addClass("col center-align vailgn-wrapper");
                 //creates a div that holds an image
                 let imageCol = $("<div>");
                 imageCol.addClass("col s2");
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 //creates a div to hold the error text
                 let errorTextDiv = $("<div>");
                 errorTextDiv.addClass("col s10");
-                let errorTextSpan = $("<span><h6>Oh no! A very hungry hippo must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. Try searching again!</span><h6>")
+                let errorTextSpan = $("<span><h6>Oh no! A very hungry hippo must have eaten all the recipes! <br> (Or your search didn't yield any results). <br> Definitely one of those happened. <br>Try searching again!</span><h6>")
 
                 imageCol.append(circleImg);
                 wrapper.append(imageCol);
