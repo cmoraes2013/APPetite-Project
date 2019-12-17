@@ -3,14 +3,12 @@
 $(document).ready(function () {
     AOS.init();
 
-    $("#searchInput").keypress(function(event){
-	
-	    var keycode = (event.keyCode ? event.keyCode : event.which);
-	    if(keycode == '13'){
-            let textValue = $("#searchInput").val(); 
+    $("#searchInput").keypress(function(e){
+         if(e.which == 13) {
+            let textValue = $("#searchInput").val().trim(); 
             localStorage.setItem("searchValue", textValue);
+            callFood()
         }
-        callFood()
     });
 
     // We immediately call food, when we come to this page
