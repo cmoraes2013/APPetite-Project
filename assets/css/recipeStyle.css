@@ -2,43 +2,6 @@
     box-sizing: border-box;
 }
 
-/* body {
-
-    background-image: url("../images/backgroundImg.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-  }
-  .searchInput{
-      width: 100%;
-      
-  }
-  .saveBtn:hover {
-      cursor: pointer;
-  }
-
-  .jumbotron{
-      margin: auto;
-      height: 300px;
-      width: 550px;
-      background-color: white;
-      opacity: 0.5;
-      color: black;
-      font-family: fantasy;
-      text-align: center;
-      font-size: 125px;
-      padding-top: 25px;
-      
-  }
-  #jumbotronHeader{
-      text-shadow: 5px 5px grey;
-      margin: 10px auto;
-      
-
-  } */
-
 .recipe {
     height: 600px;
     width: 0 auto;
