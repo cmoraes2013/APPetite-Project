@@ -10,11 +10,12 @@
   <!--CSS Framework Foundation Link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/css/foundation-float.css" />
   <!--Font Awesome Link-->
-  <!-- <script src="https://kit.fontawesome.com/83f190f6d5.js" crossorigin="anonymous"></script> -->
+  <script src="https://kit.fontawesome.com/83f190f6d5.js" crossorigin="anonymous"></script>
   <!--CSS Stylesheet Link-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  
-
+  <!--Link for Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
   <title>APPetite</title>
 </head>
 
@@ -23,7 +24,7 @@
   <!--This is the nav bar that will redirect user to their saved recipes-->
   <div class="top-bar">
     <button onclick="location.href = 'saved.html'" class="myRecipesBtn" style="vertical-align:middle">
-      <span> My Recipes </span>
+      <span> Saved Recipes </span>
     </button>
   </div>
 
@@ -31,28 +32,26 @@
   <div class="jumbotron">
     <p id="jumbotronHeader">APPetite</p>
     <p id="appDescription">
-      Tell us what ingredients you have, and we'll give you the perfect dish!
+      Wondering what to make? We have the perfect recipe for you!<br>
+
     </p>
   </div>
 
   <!--This is where the user will click to input their ingredients in the modal-->
 
   <button class="modalBtn" data-open="Modal1" style="vertical-align:middle">
-    <span>
-      What's in your fridge?
-    </span>
+    <span> Let's get started!</span>
   </button>
 
   <!--This is the modal pop-up-->
   <div class="reveal" id="Modal1" data-reveal>
     <form>
-      What ingredients are you working with?<br>
+      What ingredient(s) are you working with?<br>
       <input type="text" id="textValue">
       <button type="submit" id="searchBtn">Submit</button>
     </form>
     
-    
-
+    <!-- This is where the user can close the modal-->
     <button class="close-button" data-close aria-label="Close modal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -61,7 +60,7 @@
 
 
 
-
+<!--Links for Foundation, and JS pages-->
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="

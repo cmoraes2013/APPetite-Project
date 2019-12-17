@@ -1,10 +1,11 @@
 body {
-    background-image: url("../images/background-image.jpg");
+    background-image: url("../images/backgroundImg.jpg");
     height: 100%;
     background-position: center;
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
+
   }
 
   .top-bar{
@@ -14,15 +15,14 @@ body {
   }
 
 .myRecipesBtn{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lato', sans-serif;
   border-radius: 10px;
   padding: 10px 15px 10px 15px;
   color: white;
   font-size: large; 
-  font-weight: 800;
-  border: white solid;
+  border: white solid 2px;
   box-shadow: 5px 5px 5px black;
-  
+  margin-left: 85%;  
 }
 
 .myRecipesBtn span {
@@ -58,25 +58,20 @@ body {
       color: black;
       font-family: fantasy;
       text-align: center;
-      font-size: 125px;
+      font-size: 80px;
       line-height: 1.8;
       padding-top: 25px;
       margin-top: 75px;
-      border-radius: 25px;
+      border-radius: 10px;
       background: rgba(2, 2, 2, 0.5); 
-      border: white solid 2px;  
-  }
-
-  #jumbotronHeader{
-      color: rgb(0, 113, 150);
-      text-shadow: 2px 2px 4px white;
-      margin: 20px auto; 
+      border: white solid 2px;
   }
 
   #appDescription{
-    font-size: small;
+    font-size: medium;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: .09em;
   }
 
   .modalBtn{
@@ -85,9 +80,8 @@ body {
     border-radius: 10px;
     border: white solid 2px;
     color: white;
-    font-weight: 900;
-    font-size: larger;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-family: 'Lato', sans-serif;
     height: 50px;
     width: 400px;
     margin-top: 50px;
@@ -119,6 +113,48 @@ body {
   right: 0;
 }
 
-.ingSrc{
-  background-color: black;
+form{
+  font-family: 'Lato', sans-serif;
+}
+
+#searchBtn{
+  background-color:grey;
+  border: white;
+  color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+}
+
+.reveal{
+  border-radius: 15px;
+}
+
+#jumbotronHeader {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.07em;
+  display: inline-block;
+  position: relative;
+  color: rgb(97, 182, 211);
+  font-family: 'Raleway', sans-serif;
+  text-shadow: 2px 2px 4px white;
+  margin: 10px auto;
+  margin-bottom: 40px;
+  font-size: larger;
+}
+#jumbotronHeader:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+#jumbotronHeader:hover:after { 
+  width: 100%; 
+  left: 0; 
 }
