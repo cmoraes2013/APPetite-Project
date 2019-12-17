@@ -408,7 +408,3 @@ $(document).ready(function () {
         localStorage.setItem("myDrink", JSON.stringify(myDrinksArray));
     }
 });
-
-
-
-});//end of document.ready
