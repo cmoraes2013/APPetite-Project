@@ -1,6 +1,6 @@
 // Buttons
 $("#homeBtn").on("click", function () {
-    document.location.href = "home.html";
+    document.location.href = "index.html";
 })
 $("#recipeBtn").on("click", function () {
     document.location.href = "recipe.html";
