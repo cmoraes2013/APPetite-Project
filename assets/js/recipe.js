@@ -1,7 +1,7 @@
 // Recipes Page
 
 $(document).ready(function () {
-
+    AOS.init();
     // We immediately call food, when we come to this page
     callFood()
 
@@ -13,13 +13,11 @@ $(document).ready(function () {
     // Populate results from our drink recipe function when this button is clicked
     $("#drinkBtn").on("click", function () {
         callDrink()
-
     });
 
     $("#savedRecipeBtn").on("click", function () {
         document.location.href = "saved.html";
     });
-
 
     function callFood() {
 
@@ -70,6 +68,7 @@ $(document).ready(function () {
                 for (let i = 0; i < food.length; i++) {
                     let foodCardDiv = $("<div>");
                     foodCardDiv.addClass("col s12 m6 xl4 recipe");
+                    foodCardDiv.attr("data-aos", "flip-left")
                     // creates the card div
                     let imgCardDiv = $("<div>");
                     imgCardDiv.addClass("card large hoverable");
@@ -99,8 +98,11 @@ $(document).ready(function () {
                     // add save feature
                     let saveFeature = $("<h6>Save to favorites</h6>")
                     saveFeature.addClass("s saveBtn")
-                    let saveIcon = $("<span><i>save</i></span>");
-                    saveIcon.addClass("material-icons right s1 saveBtn");
+                    let saveIcon = $("<i>");
+                    saveIcon.addClass("far fa-save material-icons right s1 saveBtn");
+    // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
+                    checkForFavoriteRecipe(food[i].recipe.label, saveIcon)
+                    
                     saveIcon.attr("data-label", food[i].recipe.label);
                     recipeTitle.append(saveFeature);
                     recipeTitle.append(saveIcon);
@@ -207,6 +209,7 @@ $(document).ready(function () {
                         // console.log(i);       
                         let drinkCardDiv = $("<div>");
                         drinkCardDiv.addClass("col s12 m6 xl4 recipe");
+                        drinkCardDiv.attr("data-aos", "flip-left")
                         // creates the card div
                         let imgCardDiv = $("<div>");
                         imgCardDiv.addClass("card large hoverable");
@@ -236,8 +239,11 @@ $(document).ready(function () {
                         // add save feature
                         let saveFeature = $("<h6>").text("Save to favorites")
                         saveFeature.addClass("s9")
-                        let saveIcon = $("<span><i>save</i></span>");
-                        saveIcon.addClass("material-icons right s1 saveBtn");
+                        let saveIcon = $("<i>");
+                        saveIcon.addClass("far fa-save material-icons right s1 saveBtn");
+                        // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
+                        
+                        checkForFavoriteRecipe(drinks[i].strDrink, saveIcon)
                         drinkTitle.append(saveFeature);
                         saveFeature.append(saveIcon);
 
@@ -317,9 +323,28 @@ $(document).ready(function () {
     // Run the save function when the dynamic save button is clicked
     $(document).on("click", ".saveBtn", save);
 
+    //function to check if a recipe was previously saved
+    function checkForFavoriteRecipe(title, span) {
+        var myRecipesArray = JSON.parse(localStorage.getItem("myRecipes"));
+
+        if (myRecipesArray === null) {
+            myRecipesArray = [];
+        }
+        
+        for (let j = 0; j < myRecipesArray.length; j++) {
+           
+            if (myRecipesArray[j] === title) {
+                span.addClass("fa-heart");
+                span.removeClass("fa-save");
+            }
+        };
+    }
 
     // This function will save the current recipe to the favorites page
     function save() {
+        console.log("yes");
+        
+        $(this).toggleClass('fa-save fa-heart');
         // Get the name of the recipe from the label
         var label = $(this).data("label");
         // Create an array to store each favorited recipe
