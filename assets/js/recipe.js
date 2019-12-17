@@ -100,7 +100,7 @@ $(document).ready(function () {
                     titleDivSpan.addClass("card-title grey-text text-darken-4");
                     //adds "more vert" button to the card
                     let showRecipe = $("<i>more_vert</i>");
-                    showRecipe.addClass("s1 material-icons right activator");
+                    showRecipe.addClass("s1 material-icons icon right activator");
                     titleDivSpan.append(showRecipe);
                     // Creates drink text
                     let recipeTitle = $("<h5>" + food[i].recipe.label + "</h5>");
@@ -109,10 +109,11 @@ $(document).ready(function () {
                     let saveFeature = $("<h6>Save to favorites</h6>")
                     saveFeature.addClass("s")
                     let saveIcon = $("<i>");
-                    saveIcon.addClass("far fa-save material-icons right s1 saveFood");
+                    saveIcon.addClass("far fa-save icon material-icons right s1 saveFood");
                     saveIcon.attr({"data-label": food[i].recipe.label, "data-img": food[i].recipe.image, "data-link": food[i].recipe.uri});
     // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
-                    checkForFavoriteRecipe(food[i].recipe.label, saveIcon)
+                    // console.log(food[i].recipe.label)
+                    checkForFavoriteFood(food[i].recipe.label, saveIcon)
 
                     
                     saveIcon.attr("data-label", food[i].recipe.label);
@@ -141,12 +142,14 @@ $(document).ready(function () {
                     let ingredients = food[i].recipe.ingredientLines
                     // creates and populates ingredients with amounts:
                     for (let i = 0; i < ingredients.length; i++) {
-                        let ingredient = ingredients[i]
+                          // if there is no ingredient (or measure) to append, make their value= ""
+                            if (ingredients[i]=== null){
+                               ingredients[i] = "";
+                            }
                         //append a new list item with measures and ingredients
-                        let ingLi = $("<li> " + ingredient + "</li>")
+                        let ingLi = $("<li> " + ingredients[i] + "</li>")
                         ingList.append(ingLi);
                     }
-
                     //appends measures and ingredients to the page
                     recipeDiv.append(ingList);
                     //puts the recipe header on the card
@@ -184,7 +187,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (response) {
                 var drinks = response.drinks
-
+                console.log(response)
                 //empties out dynamically created elements from previous search
                 $("#results").empty();
 
@@ -244,7 +247,7 @@ $(document).ready(function () {
                         titleDivSpan.addClass("card-title grey-text text-darken-4");
                         //adds "more vert" button to the card
                         let showRecipe = $("<i>more_vert</i>");
-                        showRecipe.addClass("material-icons right activator");
+                        showRecipe.addClass("material-icons icon right activator");
                         titleDivSpan.append(showRecipe);
                         // Creates drink text
                         let drinkTitle = $("<h5>" + drinks[i].strDrink + "</h5>");
@@ -253,12 +256,12 @@ $(document).ready(function () {
                         let saveFeature = $("<h6>").text("Save to favorites")
                         saveFeature.addClass("s9")
                         let saveIcon = $("<i>");
-                        saveIcon.addClass("far fa-save material-icons right s1 saveDrink");
+                        saveIcon.addClass("far fa-save material-icons icon right s1 saveDrink");
                         saveIcon.attr("data-id", drinks[i].idDrink);
 
                         // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
                         
-                        checkForFavoriteRecipe(drinks[i].strDrink, saveIcon)
+                        checkForFavoriteDrink(drinks[i].idDrink, saveIcon)
                         drinkTitle.append(saveFeature);
                         saveFeature.append(saveIcon);
                         //Creates a div for the recipe to be displayed in
@@ -337,8 +340,24 @@ $(document).ready(function () {
     // Run the save function when the dynamic save button is clicked
 
     //function to check if a recipe was previously saved
-    function checkForFavoriteRecipe(title, span) {
-        var myRecipesArray = JSON.parse(localStorage.getItem("myRecipes"));
+    function checkForFavoriteFood(title, span) {
+        var myRecipesArray = JSON.parse(localStorage.getItem("myFood"));
+
+        if (myRecipesArray === null) {
+            myRecipesArray = [];
+        }
+        for (let j = 0; j < myRecipesArray.length; j++) {
+            
+            if (myRecipesArray[j].label === title) {
+                span.addClass("fa-heart");
+                span.removeClass("fa-save");
+            }
+        };
+    }
+
+    // function to make favorite drink work/ check to see if it was previously saved
+    function checkForFavoriteDrink(title, span) {
+        var myRecipesArray = JSON.parse(localStorage.getItem("myDrink"));
 
         if (myRecipesArray === null) {
             myRecipesArray = [];
@@ -352,6 +371,7 @@ $(document).ready(function () {
             }
         };
     }
+
 
     $(document).on("click", ".saveFood", saveFood);
     $(document).on("click", ".saveDrink", saveDrink);
