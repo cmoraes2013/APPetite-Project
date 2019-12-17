@@ -120,6 +120,18 @@ body {
   right: 0;
 }
 
-.ingSrc{
-  background-color: black;
+form{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#searchBtn{
+  background-color:grey;
+  border: white;
+  color: white;
+  padding: 10px 10px 10px 10px;
+  border-radius: 15px;
+}
+
+.reveal{
+  border-radius: 15px;
 }
