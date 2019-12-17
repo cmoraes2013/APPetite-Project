@@ -31,7 +31,7 @@ $(document).ready(function () {
     function callFood() {
 
         var textValueStorage = localStorage.getItem("searchValue")
-        console.log(textValueStorage);
+        // console.log(textValueStorage);
 
 
         var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
@@ -109,7 +109,7 @@ $(document).ready(function () {
                     let saveFeature = $("<h6>Save to favorites</h6>")
                     saveFeature.addClass("s")
                     let saveIcon = $("<i>");
-                    saveIcon.addClass("far fa-save icon material-icons right s1 saveFood");
+                    saveIcon.addClass("far fa-save saveRecipe icon material-icons right s1 saveFood");
                     saveIcon.attr({"data-label": food[i].recipe.label, "data-img": food[i].recipe.image, "data-link": food[i].recipe.uri});
     // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
                     // console.log(food[i].recipe.label)
@@ -177,7 +177,7 @@ $(document).ready(function () {
         function callDrink() {
 
             var textValueStorage = localStorage.getItem("searchValue")
-            console.log(textValueStorage);
+            // console.log(textValueStorage);
 
             var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + textValueStorage;
 
@@ -187,7 +187,7 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function (response) {
                 var drinks = response.drinks
-                console.log(response)
+                // console.log(response)
                 //empties out dynamically created elements from previous search
                 $("#results").empty();
 
@@ -256,11 +256,10 @@ $(document).ready(function () {
                         let saveFeature = $("<h6>").text("Save to favorites")
                         saveFeature.addClass("s9")
                         let saveIcon = $("<i>");
-                        saveIcon.addClass("far fa-save material-icons icon right s1 saveDrink");
+                        saveIcon.addClass("far fa-save saveRecipe material-icons icon right s1 saveDrink");
                         saveIcon.attr("data-id", drinks[i].idDrink);
 
                         // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
-                        
                         checkForFavoriteDrink(drinks[i].idDrink, saveIcon)
                         drinkTitle.append(saveFeature);
                         saveFeature.append(saveIcon);
@@ -337,18 +336,21 @@ $(document).ready(function () {
             })
         }//end of call Drink
    
+
+    // removes save button and adds heart on click
+    $(".saveRecipe").find("i").toggleClass("fa-save fa-heart");
     // Run the save function when the dynamic save button is clicked
 
     //function to check if a recipe was previously saved
     function checkForFavoriteFood(title, span) {
-        var myRecipesArray = JSON.parse(localStorage.getItem("myFood"));
+        var myRecipes = JSON.parse(localStorage.getItem("myFood"));
 
-        if (myRecipesArray === null) {
-            myRecipesArray = [];
+        if (myRecipes === null) {
+            myRecipes = [];
         }
-        for (let j = 0; j < myRecipesArray.length; j++) {
+        for (let j = 0; j < myRecipes.length; j++) {
             
-            if (myRecipesArray[j].label === title) {
+            if (myRecipes[j].label === title) {
                 span.addClass("fa-heart");
                 span.removeClass("fa-save");
             }
@@ -357,15 +359,13 @@ $(document).ready(function () {
 
     // function to make favorite drink work/ check to see if it was previously saved
     function checkForFavoriteDrink(title, span) {
-        var myRecipesArray = JSON.parse(localStorage.getItem("myDrink"));
+        var myDrinkRecipes = JSON.parse(localStorage.getItem("myDrink"));
 
-        if (myRecipesArray === null) {
-            myRecipesArray = [];
+        if (myDrinkRecipes === null) {
+            myDrinkRecipes = [];
         }
-        
-        for (let j = 0; j < myRecipesArray.length; j++) {
-           
-            if (myRecipesArray[j] === title) {
+        for (let j = 0; j < myDrinkRecipes.length; j++) {
+            if (myDrinkRecipes[j] === title) {
                 span.addClass("fa-heart");
                 span.removeClass("fa-save");
             }
@@ -379,6 +379,7 @@ $(document).ready(function () {
 
     // This function will save the current recipe to the favorites page
     function saveFood() {
+        $(this).toggleClass('fa-save fa-heart');
         // Get the name of the recipe from the label
         var label = $(this).data("label");
         // Get the image of the recipe from
@@ -410,6 +411,7 @@ $(document).ready(function () {
 
     function saveDrink()
     {
+        $(this).toggleClass('fa-save fa-heart');
         // Get the drink id
         var idDrink = $(this).data("id");
         // Store the drink recipe in the array
