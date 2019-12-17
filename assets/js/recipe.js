@@ -106,7 +106,7 @@ $(document).ready(function () {
                     recipeTitle.addClass("s9");
                     // add save feature
                     let saveFeature = $("<h6>Save to favorites</h6>")
-                    saveFeature.addClass("s saveBtn")
+                    saveFeature.addClass("s")
                     let saveIcon = $("<i>");
                     saveIcon.addClass("far fa-save material-icons right s1 saveBtn");
     // If previously saved, title will be in local storage.Check, and populate save Icon based on answer.
