@@ -4,8 +4,7 @@ var myRecipes = JSON.parse(localStorage.getItem("myRecipes"))
 console.log(myRecipes);
 
 // Loop through the local storage array and create cards for the recipes
-for (let i = 0; i < myRecipes.length; i++)
-{
+
 var queryURL = "https://api.edamam.com/search?q=" + JSON.stringify(myRecipes) + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
 
 $.ajax(
@@ -33,10 +32,13 @@ $.ajax(
 
             // Append the divs to the container
             titleDivSpan.append(showRecipe);
-            recipeTitle.append(saveIcon).append(saveFeature);
+            recipeTitle.append(saveFeature);
+            recipeTitle.append(saveIcon);
             recipeDiv.append(recipeDivSpan);
             recipeDivSpan.append(closeRecipe);
-            recipeTitleDiv.append(recipeTitle).append(titleDivSpan);
+            recipeTitleDiv.append(titleDivSpan)
+            recipeTitleDiv.append(recipeTitle);
+    
             imgDiv.append(recipeImg);
             imgCardDiv.append(recipeDiv).append(recipeTitleDiv).append(imgDiv);
             foodCardDiv.append(imgCardDiv);
@@ -51,4 +53,3 @@ $("#homeBtn").on("click", function () {
 $("#recipeBtn").on("click", function () {
     document.location.href = "recipe.html";
 })
-}

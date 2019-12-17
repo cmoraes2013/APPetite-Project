@@ -28,7 +28,7 @@ $(document).ready(function () {
         method: "GET"
     }).then(function(response) {
         var food = response.hits
-
+        console.log(response)
         //empties out dynamically created elements from previous search
         $("#results").empty();
 
@@ -94,7 +94,7 @@ $(document).ready(function () {
                         let saveFeature = $("<h6>Save to favorites</h6>")
                         saveFeature.addClass("s saveBtn")
                         let saveIcon = $("<span><i>save</i></span>");
-                        saveIcon.addClass("material-icons right s1 saveBtn");
+                        saveIcon.addClass("material-icons right s1 saveFood");
                         saveIcon.attr("data-label", food[i].recipe.label);
                         recipeTitle.append(saveFeature);
                         recipeTitle.append(saveIcon);
@@ -165,7 +165,7 @@ function callDrink () {
         method: "GET"
     }).then(function(response) {
         var drinks = response.drinks
-
+        console.log(response);
         //empties out dynamically created elements from previous search
         $("#results").empty();
 
@@ -233,7 +233,8 @@ function callDrink () {
                     let saveFeature = $("<h6>").text("Save to favorites")
                     saveFeature.addClass("s9")
                     let saveIcon = $("<span><i>save</i></span>");
-                    saveIcon.addClass("material-icons right s1 saveBtn");
+                    saveIcon.addClass("material-icons right s1 saveDrink");
+                    saveIcon.attr("data-id", drinks[i].idDrink);
                     drinkTitle.append(saveFeature);
                     saveFeature.append(saveIcon);
 
@@ -312,17 +313,17 @@ function callDrink () {
     };
 
     // Run the save function when the dynamic save button is clicked
-    $(document).on("click", ".saveBtn", save);
+    $(document).on("click", ".saveFood", saveFood);
+    $(document).on("click", ".saveDrink", saveDrink);
    
 
     // This function will save the current recipe to the favorites page
-    function save()
+    function saveFood()
     {
         // Get the name of the recipe from the label
         var label = $(this).data("label");
         // Create an array to store each favorited recipe
-        var myRecipesArray = JSON.parse(localStorage.getItem("myRecipes"));    
-        
+        var myRecipesArray = JSON.parse(localStorage.getItem("myFood"));    
         
         // If there is no recipes, then the array will appear null and need to be assigned to an array
         if(myRecipesArray === null)
@@ -331,10 +332,10 @@ function callDrink () {
         }     
 
         // Push the label into the array
-        myRecipesArray.push(label)
+        myRecipesArray.push(label);
        
         // If this save button is clicked save the recipe to myRecipes and save the id with it
-        localStorage.setItem("myRecipes", JSON.stringify(myRecipesArray));
+        localStorage.setItem("myFood", JSON.stringify(myRecipesArray));
     }
 
     // Click the Saved recipe button to send you to the saved recipe page
@@ -342,4 +343,24 @@ function callDrink () {
     {
         document.location.href= "saved.html";
     })
+
+    function saveDrink()
+    {
+        // Get the drink id
+        var idDrink = $(this).data("id");
+        // Store the drink recipe in the array
+        var myDrinksArray = JSON.parse(localStorage.getItem("myDrink"));
+
+        // If there is no recipes, then the array will appear null and need to be assigned to an array
+        if(myDrinksArray === null)
+        {
+            myDrinksArray = [];
+        }
+
+        // Push drink id into array
+        myDrinksArray.push(idDrink);
+
+        // If this save button is clicked, save the recipe to myDrink 
+        localStorage.setItem("myDrink", JSON.stringify(myDrinksArray));
+    }
 });
