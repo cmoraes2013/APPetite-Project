@@ -82,6 +82,9 @@ h5 {
     box-shadow: 2px 2px 2px black; 
 }
 
+.container{
+    margin-top: 50px;
+}
 /* Error msg that shows when something is searched for, but there is no matching recipe */
 .recipeError {
     padding: 20px 20px 0px;
