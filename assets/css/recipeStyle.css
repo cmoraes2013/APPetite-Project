@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
 
     background-image: url("../images/backgroundImg.jpg");
     height: 100%;
@@ -37,7 +37,7 @@ body {
       margin: 10px auto;
       
 
-  }
+  } */
 
 .recipe {
     height: 600px;
