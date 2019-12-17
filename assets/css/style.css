@@ -15,13 +15,12 @@ body {
   }
 
 .myRecipesBtn{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lato', sans-serif;
   border-radius: 10px;
   padding: 10px 15px 10px 15px;
   color: white;
   font-size: large; 
-  font-weight: 800;
-  border: white solid;
+  border: white solid 2px;
   box-shadow: 5px 5px 5px black;
   margin-left: 85%;  
 }
@@ -69,9 +68,10 @@ body {
   }
 
   #appDescription{
-    font-size: small;
+    font-size: medium;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: .09em;
   }
 
   .modalBtn{
@@ -80,8 +80,8 @@ body {
     border-radius: 10px;
     border: white solid 2px;
     color: white;
-    font-size: small;
-    font-family: 'Courier New', Courier, monospace;
+    font-size: medium;
+    font-family: 'Lato', sans-serif;
     height: 50px;
     width: 400px;
     margin-top: 50px;
@@ -114,7 +114,7 @@ body {
 }
 
 form{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Lato', sans-serif;
 }
 
 #searchBtn{
@@ -132,10 +132,11 @@ form{
 #jumbotronHeader {
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.07em;
   display: inline-block;
   position: relative;
   color: rgb(97, 182, 211);
+  font-family: 'Raleway', sans-serif;
   text-shadow: 2px 2px 4px white;
   margin: 10px auto;
   margin-bottom: 40px;
