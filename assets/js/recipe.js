@@ -27,10 +27,6 @@ $(document).ready(function () {
     $("#savedRecipeBtn").on("click", function () {
         document.location.href = "saved.html";
     });
-    
-    $("#homeBtn").on("click", function () {
-        document.location.href = "index.html";
-    });
 
     function callFood() {
 
@@ -80,7 +76,7 @@ $(document).ready(function () {
                 // for loop over the array to populate data
                 for (let i = 0; i < food.length; i++) {
                     let foodCardDiv = $("<div>");
-                    foodCardDiv.addClass("col s12 m6 xl4 recipe");
+                    foodCardDiv.addClass("col s12 m6 l4 xl3 recipe");
                     foodCardDiv.attr("data-aos", "flip-left")
                     // creates the card div
                     let imgCardDiv = $("<div>");
@@ -228,7 +224,7 @@ $(document).ready(function () {
                     for (let i = 0; i < drinks.length; i++) {
                         // console.log(i);       
                         let drinkCardDiv = $("<div>");
-                        drinkCardDiv.addClass("col s12 m6 xl4 recipe");
+                        drinkCardDiv.addClass("col s12 m6 l4 xl3 recipe");
                         drinkCardDiv.attr("data-aos", "flip-left")
                         // creates the card div
                         let imgCardDiv = $("<div>");
