@@ -201,10 +201,10 @@ $(document).ready(function () {
                     //Creates a div around the card
                     let responseNone = $("<div>");
                     //adds classes to the initial div
-                    responseNone.addClass("col card-panel grey lighten-5 z-depth-1 center-align hoverable")
+                    responseNone.addClass("col card-panel grey lighten-5 z-depth-1 center-align hoverable recipeError")
                     // creates another div with row/wrapper classes
                     let wrapper = $("<div>");
-                    wrapper.addClass("row vailgn-wrapper recipeError");
+                    wrapper.addClass("row vailgn-wrapper");
                     //creates a div that holds an image
 
                     let imageCol = $("<div>");
