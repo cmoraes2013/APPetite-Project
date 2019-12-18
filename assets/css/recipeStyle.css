@@ -1,3 +1,12 @@
+body {
+    background-image: url("../images/backgroundImg.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
 * {
     box-sizing: border-box;
 }
@@ -19,6 +28,7 @@ h5 {
 }
 
 .navBtn{
+    font-family: 'Lato', sans-serif;
     border-radius: 10px;
     border: white solid 1px;
     background: transparent;
