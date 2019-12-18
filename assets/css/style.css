@@ -23,7 +23,7 @@ body {
   box-shadow: 5px 5px 5px black;
 }
 /* makes sure myRecipes button stays in place as screen gets smaller */
-@media only screen and (max-width: 987px) {
+/* @media only screen and (max-width: 987px) {
   .myRecipesBtn {
   margin-left: 80%;
  
@@ -42,7 +42,7 @@ body {
   margin-left: 65%;
  
   }
-}
+} */
 
 .myRecipesBtn:hover{
   background-color: teal;
