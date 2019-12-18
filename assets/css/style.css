@@ -17,36 +17,11 @@ body {
 .myRecipesBtn {
   font-family: "Lato", sans-serif;
   border-radius: 10px;
-  padding: 10px 15px 10px 15px;
+  padding: 20px 15px 20px 15px;
   color: white;
   font-size: large;
-  border: white solid 2px;
+  border: white solid 1px;
   box-shadow: 5px 5px 5px black;
-}
-
-.myRecipesBtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.myRecipesBtn span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.myRecipesBtn:hover span {
-  padding-right: 25px;
-}
-
-.myRecipesBtn:hover span:after {
-  opacity: 1;
-  right: 0;
 }
 
 .jumbotron {
@@ -183,31 +158,14 @@ h5 {
   border-bottom: white solid 1px;
 }
 
-#foodBtn {
+.navBtn{
   border-radius: 10px;
   border: white solid 1px;
   background: transparent;
-  margin: 10px 5px 10px 5px;
-  padding-bottom: 60px;
-  box-shadow: 2px 2px 2px black;
-}
-
-#drinkBtn {
-  border-radius: 10px;
-  border: white solid 1px;
-  background: transparent;
-  margin: 10px 5px 10px 5px;
-  padding-bottom: 60px;
-  box-shadow: 2px 2px 2px black;
-}
-
-#savedRecipeBtn {
-  border-radius: 10px;
-  border: white solid 1px;
-  background: transparent;
-  margin: 10px 5px 10px 5px;
-  padding-bottom: 60px;
-  box-shadow: 2px 2px 2px black;
+  margin: 10px 5px 10px 5px; 
+  padding-bottom: 60px; 
+  box-shadow: 2px 2px 2px black;  
+  font-family: "Lato", sans-serif;
 }
 
 .container {
@@ -244,20 +202,12 @@ h5 {
   border-bottom: white solid 1px;
 }
 
-#homeBtn {
+#topDivBtn {
   border-radius: 10px;
   border: white solid 1px;
   background: transparent;
   margin: 10px 5px 10px 5px;
   padding-bottom: 60px;
   box-shadow: 2px 2px 2px black;
-}
-
-#recipeBtn {
-  border-radius: 10px;
-  border: white solid 1px;
-  background: transparent;
-  margin: 10px 5px 10px 5px;
-  padding-bottom: 60px;
-  box-shadow: 2px 2px 2px black;
+  font-family: "Lato", sans-serif;
 }
