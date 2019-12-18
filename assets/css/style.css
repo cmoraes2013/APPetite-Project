@@ -5,25 +5,22 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -1;
-    /* background-size: 100% 100%; */
-    
   }
 
   .top-bar{
-    height: 65px;
+    height: 80px;
     background: rgba(2, 2, 2, 0.5);
-    border-bottom: white solid 2px;
+    border-bottom: white solid 1px;
   }
 
 .myRecipesBtn{
   font-family: 'Lato', sans-serif;
   border-radius: 10px;
-  padding: 10px 15px 10px 15px;
+  padding: 15px 15px 15px 15px;
   color: white;
   font-size: large; 
   border: white solid 2px;
   box-shadow: 5px 5px 5px black;
-  margin-left: 85%;  
 }
 /* makes sure myRecipes button stays in place as screen gets smaller */
 @media only screen and (max-width: 987px) {
@@ -47,30 +44,11 @@ body {
   }
 }
 
-.myRecipesBtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+.myRecipesBtn:hover{
+  background-color: teal;
+  transition: 0.4s;
 }
 
-.myRecipesBtn span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.myRecipesBtn:hover span {
-  padding-right: 25px;
-}
-
-.myRecipesBtn:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 
   .jumbotron{
       margin: auto;
@@ -201,6 +179,46 @@ form{
   left: 0; 
 }
 
+/* Styling for Saved Sheet  */
+
+#topDiv{
+  height: 80px;
+    background: rgba(2, 2, 2, 0.5);
+    border-bottom: white solid 1px;
+}
+
+#homeBtn{
+  font-family: 'Lato', sans-serif;
+  border-radius: 10px;
+  border: white solid 1px;
+  box-shadow: 2px 2px 2px black;
+  background: transparent;
+  margin: 10px 5px 10px 5px;
+  padding-bottom: 60px; 
+}
+
+#homeBtn:hover{
+  background-color: teal;
+}
+
+#recipeBtn{
+  font-family: 'Lato', sans-serif;
+  border-radius: 10px;
+  border: white solid 1px;
+  box-shadow: 2px 2px 2px black;
+  background: transparent;
+  margin: 10px 5px 10px 5px;
+  padding-bottom: 60px; 
+}
+
+#recipeBtn:hover{
+  background-color: teal;
+}
+
+.container{
+  margin-top: 50px;
+}
+
 
 /* resizing for error message */
 /* makes sure myRecipes button stays in place as screen gets smaller */
@@ -237,3 +255,4 @@ form{
  
   }
 } 
+
