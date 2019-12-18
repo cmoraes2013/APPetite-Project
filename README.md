@@ -8,7 +8,7 @@ Have you ever opened up your fridge only to realize that you don't know what to 
 ## Interface
 After a user completes the initial search, they can choose to search for drinks that utilize those ingredients, or just browse through the recipes on the page and click on any that look promising. This click will bring up a list of ingredients and a link to the recipe will open in a new tab.
 
-![UI for Appetite App](assets/images/gifofAppetite.gif "UI with Initial Animation")
+![UI for Appetite App](assets/images/gifOfAppetite.gif "UI with Initial Animation")
 
 Assuming that the user finds a suitable recipe, they can save it by simply pressing the 'save' icon. This icon then changes into a heart, visually signaling that it has been added to the user's saved recipes. The recipe can then be viewed in the 'saved recipes' tab.
 
