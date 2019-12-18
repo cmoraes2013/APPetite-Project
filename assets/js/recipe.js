@@ -28,6 +28,10 @@ $(document).ready(function () {
         document.location.href = "saved.html";
     });
 
+    $("#goHomeBtn").on("click", function () {
+        document.location.href = "index.html";
+    })
+
     function callFood() {
 
         var textValueStorage = localStorage.getItem("searchValue")
