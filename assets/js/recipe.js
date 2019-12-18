@@ -27,10 +27,6 @@ $(document).ready(function () {
     $("#savedRecipeBtn").on("click", function () {
         document.location.href = "saved.html";
     });
-    
-    $("#homeBtn").on("click", function () {
-        document.location.href = "index.html";
-    });
 
     function callFood() {
 
@@ -38,12 +34,13 @@ $(document).ready(function () {
         // console.log(textValueStorage);
 
 
-        var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
+        var queryURL = "https://api.edamam.com/search?q=" + textValueStorage + "&to=12&app_id=84f17b3a&app_key=4f2ef891037c9d69f5c48f49d63d0669"
 
         $.ajax({
             url: queryURL,
             method: "GET"
         }).then(function (response) {
+            console.log(response);
             var food = response.hits
 
             //empties out dynamically created elements from previous search
@@ -80,7 +77,7 @@ $(document).ready(function () {
                 // for loop over the array to populate data
                 for (let i = 0; i < food.length; i++) {
                     let foodCardDiv = $("<div>");
-                    foodCardDiv.addClass("col s12 m6 xl4 recipe");
+                    foodCardDiv.addClass("col s12 m6 l4 xl3 recipe");
                     foodCardDiv.attr("data-aos", "flip-left")
                     // creates the card div
                     let imgCardDiv = $("<div>");
@@ -228,7 +225,7 @@ $(document).ready(function () {
                     for (let i = 0; i < drinks.length; i++) {
                         // console.log(i);       
                         let drinkCardDiv = $("<div>");
-                        drinkCardDiv.addClass("col s12 m6 xl4 recipe");
+                        drinkCardDiv.addClass("col s12 m6 l4 xl3 recipe");
                         drinkCardDiv.attr("data-aos", "flip-left")
                         // creates the card div
                         let imgCardDiv = $("<div>");
