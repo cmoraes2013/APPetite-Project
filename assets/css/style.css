@@ -25,6 +25,27 @@ body {
   box-shadow: 5px 5px 5px black;
   margin-left: 85%;  
 }
+/* makes sure myRecipes button stays in place as screen gets smaller */
+@media only screen and (max-width: 987px) {
+  .myRecipesBtn {
+  margin-left: 80%;
+ 
+  }
+}
+
+@media only screen and (max-width: 755px) {
+  .myRecipesBtn {
+  margin-left: 75%;
+ 
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .myRecipesBtn {
+  margin-left: 65%;
+ 
+  }
+}
 
 .myRecipesBtn span {
   cursor: pointer;
@@ -76,7 +97,7 @@ body {
   }
 
   .modalBtn{
-    margin-left: 35%;
+    margin-left: 33%;
     background: rgba(2, 2, 2, 0.5);
     border-radius: 10px;
     border: white solid 2px;
@@ -87,6 +108,26 @@ body {
     width: 400px;
     margin-top: 50px;
     box-shadow: 5px 5px 5px black;
+}
+/* ensures that the modal button stays in place as screen gets smaller */ */
+@media only screen and (max-width: 1145px) {
+  .modalBtn {
+  margin-left: 32%;
+ 
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .modalBtn {
+  margin-left: 30%;
+
+  }
+}
+@media only screen and (max-width: 860px) {
+  .modalBtn {
+  margin-left: 25%;
+
+  }
 }
 
 .modalBtn span {
@@ -159,3 +200,40 @@ form{
   width: 100%; 
   left: 0; 
 }
+
+
+/* resizing for error message */
+/* makes sure myRecipes button stays in place as screen gets smaller */
+@media only screen and (min-width: 1567px) {
+  .recipeError {
+  margin-left: 30%;
+ 
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .recipeError {
+  margin-left: 20%;
+ 
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .myRecipesBtn {
+  margin-left: 15%;
+ 
+  }
+} 
+@media only screen and (min-width: 900px) {
+  .myRecipesBtn {
+  margin-left: 10%;
+ 
+  }
+} 
+
+@media only screen and (min-width: 700px) {
+  .myRecipesBtn {
+  margin-left: 5%;
+ 
+  }
+} 
