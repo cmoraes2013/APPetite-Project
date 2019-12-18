@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
+  
   <!--CSS Framework Foundation Link-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.0/css/foundation-float.css" />
   <!--Font Awesome Link-->
@@ -24,58 +24,59 @@
   <!--This is the nav bar that will redirect user to their saved recipes-->
   <div class="top-bar">
     <button onclick="location.href = 'saved.html'" class="myRecipesBtn">
-      <span> Saved Recipes <i class="far fa-save"></i> </span>
+      <span> Saved Recipes  <i class="far fa-save"></i></span>
     </button>
   </div>
 
   <!--This is the logo-->
-  <div class="box">
-    <div class="jumbotron">
-      <p id="jumbotronHeader">APPetite</p>
-      <p id="appDescription">
-        Wondering what to make? We have the perfect recipe for you!<br>
+  <div class="jumbotron">
+    <p id="jumbotronHeader">APPetite</p>
+    <p id="appDescription">
+      Wondering what to make? We have the perfect recipe for you!<br>
 
-      </p>
-    </div>
-
-    <!--This is where the user will click to input their ingredients in the modal-->
-
-    <button class="modalBtn" data-open="Modal1" style="vertical-align:middle">
-      <span> Let's get started!</span>
-    </button>
-    <!--This is the modal pop-up-->
-    <div class="reveal" id="Modal1" data-reveal>
-      <form>
-        What ingredient(s) are you working with?<br>
-        <input type="text" id="textValue">
-        <button type="submit" id="searchBtn">Submit</button>
-      </form>
-      
-      <!-- This is where the user can close the modal-->
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    </p>
   </div>
-  
-</div>
+
+  <!--This is where the user will click to input their ingredients in the modal-->
+
+  <button class="modalBtn" data-open="Modal1" style="vertical-align:middle">
+    <span> Let's get started!</span>
+  </button>
+
+  <!--This is the modal pop-up-->
+  <div class="reveal" id="Modal1" data-reveal>
+    <form>
+      What ingredient(s) are you working with?<br>
+      <input type="text" id="textValue">
+      <button type="submit" id="searchBtn">Submit</button>
+    </form>
+    
+    <!-- This is where the user can close the modal-->
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
 
 
-  <!--Links for Foundation, and JS pages-->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<!--Links for Foundation, and JS pages-->
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/vendor/jquery.js"></script>
-
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation-essential/6.2.2/js/foundation.js "></script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="assets/js/vendor/foundation.js"></script>
-  <script src="assets/js/app.js"></script>
+  <script src = "assets/js/vendor/foundation.js"></script>
+  <script src = "assets/js/app.js"></script>
+  
 
-
-  <script src="assets/js/script.js"></script>
-
+  <script src = "assets/js/script.js"></script>
+  
 </body>
 
 </html>

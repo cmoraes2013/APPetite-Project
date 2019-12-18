@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+.recipe {
+    height: 600px;
+    width: 0 auto;
+    overflow: hidden;
+}
+/* Sets margin for h5s-- which allows the save button to show up next to the recipe title */
+h5 {
+    margin: 0 auto;
+}
+/* Adds margin under the buttons at the top of the page */
+#topDiv {
+    height: 80px;
+    background: rgba(2, 2, 2, 0.5);
+    border-bottom: white solid 1px;
+}
+
+.navBtn{
+    border-radius: 10px;
+    border: white solid 1px;
+    background: transparent;
+    margin: 10px 5px 10px 5px; 
+    padding-bottom: 60px; 
+    box-shadow: 2px 2px 2px black;  
+}
+
+.container{
+    margin-top: 50px;
+}
+/* Error msg that shows when something is searched for, but there is no matching recipe */
+.recipeError {
+    padding: 20px 20px 0px;
+}
+
+/* Gives font size to the hippo fontAwesome */
+#recipeErrori {
+    font-size: 80px;
+}
+
+@media only screen and (max-width: 700px) {
+    #recipeErrori {
+        font-size: 50px;
+    }
+  }
+
+  /* Repsonsive styling */
+  @media only screen and (max-width: 1100px) {
+      .btnText {
+          display: none;
+      }
+  }
+
+  @media only screen and (max-width: 900px) {
+      .btnText {
+          display: none;
+      }
+  }
+  @media only screen and (max-width: 700px) {
+      .btnText {
+          display: none;
+      }
+      #searchDiv {
+        display: none;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+      .navBtn {
+        border-radius: 10px;
+        border: white solid 1px;
+        background: transparent;
+        margin: 10px 1px 10px 1px; 
+        padding-bottom: 60px; 
+        box-shadow: 1px 1px 1px black;  
+      }
+  }
+  @media only screen and (max-width: 370px) {
+    .navBtn {
+      font-size: 10px;
+      border-radius: 2px;
+      border: white solid 1px;
+      background: transparent;
+      margin: 10px 0px 10px 0px; 
+      padding-bottom: 60px;
+    }
+}
+
+
+
+/* Change cursor on hover */
+.icon:hover {
+      cursor: pointer;
+  } 

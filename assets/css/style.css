@@ -6,104 +6,45 @@ body {
   background-size: cover;
   z-index: -1;
   /* background-size: 100% 100%; */
-}
-
-.top-bar {
-  height: 80px;
-  background: rgba(2, 2, 2, 0.5);
-  border-bottom: white solid 2px;
-}
-
-.myRecipesBtn {
-  font-family: "Lato", sans-serif;
-  border-radius: 10px;
-  padding: 20px 15px 20px 15px;
-  color: white;
-  font-size: large;
-  border: white solid 1px;
-  box-shadow: 5px 5px 5px black;
-}
-
-.jumbotron {
-  margin: auto;
-  height: 300px;
-  width: 750px;
-  background-color: white;
-  color: black;
-  font-family: fantasy;
-  text-align: center;
-  font-size: 80px;
-  line-height: 1.8;
-  padding-top: 25px;
-  margin-top: 75px;
-  border-radius: 10px;
-  background: rgba(2, 2, 2, 0.5);
-  border: white solid 2px;
-}
-.box {
-  text-align: center;
-}
-
-#appDescription {
-  font-size: medium;
-  color: white;
-  font-family: "Lato", sans-serif;
-  letter-spacing: 0.09em;
-}
-
-.modalBtn {
-  background: rgba(2, 2, 2, 0.5);
-  border-radius: 10px;
-  border: white solid 2px;
-  color: white;
-  font-size: medium;
-  font-family: "Lato", sans-serif;
-  height: 50px;
-  width: 400px;
-  margin-top: 50px;
-  box-shadow: 5px 5px 5px black;
-}
-
-.modalBtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.modalBtn span:after {
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.modalBtn:hover span {
-  padding-right: 25px;
-}
-
-.modalBtn:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-form {
-  font-family: "Lato", sans-serif;
-}
-
-#searchBtn {
-  background-color: grey;
-  border: white;
-  color: white;
-  padding: 10px 10px 10px 10px;
-  border-radius: 15px;
   
 }
 
-.reveal {
-  border-radius: 15px;
+.top-bar{
+  height: 80px;
+  background: rgba(2, 2, 2, 0.5);
+  border-bottom: white solid 1px;
+}
+
+.myRecipesBtn{
+font-family: 'Lato', sans-serif;
+border-radius: 10px;
+padding: 10px 15px 10px 15px;
+color: white;
+font-size: large; 
+border: white solid 2px;
+box-shadow: 5px 5px 5px black;
+height: 60px;
+}
+
+.far{
+  color: white;
+}
+
+.jumbotron{
+    margin: auto;
+    height: 300px;
+    width: 750px;
+    background-color: white;
+    color: black;
+    font-family: fantasy;
+    text-align: center;
+    font-size: 80px;
+    line-height: 1.8;
+    padding-top: 25px;
+    margin-top: 75px;
+    border-radius: 10px;
+    background: rgba(2, 2, 2, 0.5); 
+    border: white solid 2px;
 }
 
 #jumbotronHeader {
@@ -113,13 +54,13 @@ form {
   display: inline-block;
   position: relative;
   color: rgb(97, 182, 211);
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   text-shadow: 2px 2px 4px white;
   margin: 10px auto;
   margin-bottom: 40px;
   font-size: larger;
-}
-#jumbotronHeader:after {
+  }
+  #jumbotronHeader:after {    
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -130,84 +71,96 @@ form {
   background: #fff;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
-}
-#jumbotronHeader:hover:after {
-  width: 100%;
-  left: 0;
+  }
+  #jumbotronHeader:hover:after { 
+  width: 100%; 
+  left: 0; 
+  }
+
+#appDescription{
+  font-size: medium;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: .09em;
 }
 
-/* Styling for recipe.html */
-
-* {
-  box-sizing: border-box;
+.modalBtn{
+  margin-left: 35%;
+  background: rgba(2, 2, 2, 0.5);
+  border-radius: 10px;
+  border: white solid 2px;
+  color: white;
+  font-size: medium;
+  font-family: 'Lato', sans-serif;
+  height: 50px;
+  width: 400px;
+  margin-top: 50px;
+  box-shadow: 5px 5px 5px black;
 }
 
-.recipe {
-  height: 600px;
-  width: 0 auto;
-  overflow: hidden;
+.modalBtn span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
 }
-/* Sets margin for h5s-- which allows the save button to show up next to the recipe title */
-h5 {
-  margin: 0 auto;
+
+.modalBtn span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
 }
-/* Adds margin under the buttons at the top of the page */
-#topDiv {
+
+.modalBtn:hover span {
+padding-right: 25px;
+}
+
+.modalBtn:hover span:after {
+opacity: 1;
+right: 0;
+}
+
+form{
+font-family: 'Lato', sans-serif;
+}
+
+#searchBtn{
+background-color:grey;
+border: white;
+color: white;
+padding: 10px 10px 10px 10px;
+border-radius: 15px;
+}
+
+.reveal{
+border-radius: 15px;
+}
+
+/* Styling for Saved page */
+
+#topDiv{
   height: 80px;
   background: rgba(2, 2, 2, 0.5);
   border-bottom: white solid 1px;
 }
 
-.navBtn{
+#homeBtn{
+    border-radius: 10px;
+    border: white solid 1px;
+    background: transparent;
+    margin: 10px 5px 10px 5px; 
+    padding-bottom: 60px; 
+    box-shadow: 2px 2px 2px black; 
+}
+
+#recipeBtn{
   border-radius: 10px;
   border: white solid 1px;
   background: transparent;
   margin: 10px 5px 10px 5px; 
   padding-bottom: 60px; 
-  box-shadow: 2px 2px 2px black;  
-  font-family: "Lato", sans-serif;
-}
-
-.container {
-  margin-top: 50px;
-}
-/* Error msg that shows when something is searched for, but there is no matching recipe */
-.recipeError {
-  padding: 20px 20px 0px;
-}
-
-/* Gives font size to the hippo fontAwesome */
-#recipeErrori {
-  font-size: 80px;
-}
-
-@media only screen and (max-width: 700px) {
-  #recipeErrori {
-    font-size: 50px;
-  }
-}
-
-/* Responsive styling */
-@media only screen and (max-width: 730px) {
-  .btnText {
-    display: none;
-  }
-}
-
-/* Styling For Saved Sheet */
-
-#topDiv {
-  height: 80px;
-  background: rgba(2, 2, 2, 0.5);
-  border-bottom: white solid 1px;
-}
-
-#topDivBtn {
-  border-radius: 10px;
-  border: white solid 1px;
-  background: transparent;
-  margin: 10px 5px 10px 5px;
-  padding-bottom: 60px;
-  box-shadow: 2px 2px 2px black;
-  font-family: "Lato", sans-serif;
+  box-shadow: 2px 2px 2px black; 
 }
