@@ -28,6 +28,10 @@ $(document).ready(function () {
         document.location.href = "saved.html";
     });
 
+    $("#goHomeBtn").on("click", function () {
+        document.location.href = "index.html";
+    })
+
     function callFood() {
 
         var textValueStorage = localStorage.getItem("searchValue")
@@ -352,6 +356,7 @@ $(document).ready(function () {
         for (let j = 0; j < myRecipes.length; j++) {
             
             if (myRecipes[j].label === title) {
+
                 span.addClass("fa-heart");
                 span.removeClass("fa-save");
             }
@@ -372,6 +377,7 @@ $(document).ready(function () {
             }
         };
     }
+
 
 
     $(document).on("click", ".saveFood", saveFood);
